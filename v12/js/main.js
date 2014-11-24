@@ -142,11 +142,11 @@ function render(){
             roy_render();
             break;
     case 15:
-            rick_init();
+            credits_init();
             playPart++;
             break;
     case 16:
-            rick_render();
+            credits_render();
             break;
   }
 

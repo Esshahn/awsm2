@@ -17,7 +17,7 @@ function karma_init()
   zoom = new Zoombar();
   awsm9000_sinus = 0;
 
-  playSong('sid/Positive_Karma.sid',5);
+  playSong('sid/Positive_Karma.sid',1);
 }
 
 function Zoombar(){

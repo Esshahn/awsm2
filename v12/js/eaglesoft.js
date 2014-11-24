@@ -33,7 +33,7 @@ function BlackBox(){
     this.speed = 1;
     this.y = -20;
 
-  }
+  };
 
   this.draw = function(){
     if (this.y < this.height){
@@ -44,7 +44,7 @@ function BlackBox(){
       myscrolltext.draw(190);
     }
 
-  }
+  };
 
 }
 
