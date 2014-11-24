@@ -17,7 +17,7 @@ function scarlett_init()
   zoom = new Zoombar();
   awsm9000_sinus = 0;
 
-  if (demoIsLive) playSong('sid/Positive_Karma.sid',5);
+  playSong('sid/Positive_Karma.sid',5);
 }
 
 function Zoombar(){
