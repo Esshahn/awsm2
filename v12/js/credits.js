@@ -5,6 +5,7 @@ function credits_init()
   mycanvas.clear();
 
   credits_underwater_320 = new image("gfx/credits_underwater_320.gif");
+  credits_underwater_canvas = new canvas(320,180);
   credits_gradient = new image("gfx/credits_gradient.gif");
   credits_font = new image("gfx/slimfont_awsm.gif");
   credits_font2 = new image("gfx/font_hotline.gif");
@@ -15,7 +16,7 @@ function credits_init()
 
   playSong('sid/Arctic_Circles.sid',0);
 
-  credits_underwater_y=-180;
+  credits_underwater_y=-170;
 
   sinusScrolltext =  "THE END";
   sinusScrolltext += "$$$THE EDGE OF DISGUST";
@@ -37,11 +38,15 @@ function credits_init()
   sinusScrolltext += "$SO MANY GOOD MEMORIES AND";
   sinusScrolltext += "$STILL AMAZE ME WITH THEIR";
   sinusScrolltext += "$CREATIVITY TODAY.";
-  initFlyScroll(sinusScrolltext);
+
+  credits_init_flyscroll(sinusScrolltext);
+
+  credits_init_waves();
 }
 
 
-function initFlyScroll(text){
+function credits_init_flyscroll(text)
+{
 
   flyScrollText = text;
   flyScrollAllText = [];
@@ -58,7 +63,7 @@ function initFlyScroll(text){
       flyScrollStartSin = 0;
     }
 
-    flyScrollAllText[i] = new FlyScroll (flyScrollText[i],flyScrollX+flyScrollFontWidth*i,220+flyScrollY,0.2,flyScrollStartSin,0.05);
+    flyScrollAllText[i] = new FlyScroll (flyScrollText[i],flyScrollX+flyScrollFontWidth*i,200+flyScrollY,0.2,flyScrollStartSin,0.05);
     flyScrollStartSin -= 0.25;
 
   }
@@ -95,6 +100,30 @@ function FlyScroll(text, xPos, yPos, speed, initSin, ampSin)
 
 }
 
+function credits_init_waves(){
+
+  var credits_waves_sin = 0;
+  allWaves = [];
+
+  for (i=0; i<200; i++){
+    credits_waves_sin+=0.6;
+    allWaves[i] = new credits_Waves(i,credits_waves_sin);
+  }
+}
+
+function credits_Waves(yPos,sin){
+  this.yPos = yPos;
+  this.sin = sin;
+
+  this.draw =function (canvas)
+  {
+    credits_underwater_canvas.drawPart(credits_underwater_canvas,0,this.yPos,Math.floor(Math.sin(this.sin)*5),this.yPos,320,1);
+    this.sin += 0.02;
+  }
+
+
+}
+
 
 function credits_render()
 {
@@ -103,21 +132,27 @@ function credits_render()
     stage.fill(c64.colors.black);
     credits_scroller_canvas.clear();
 
+    credits_underwater_320.draw(credits_underwater_canvas,0,0);
 
-    if (credits_underwater_y<0) credits_underwater_y += 0.1;
-    credits_underwater_320.draw(mycanvas,0,credits_underwater_y);
+    for (i = 0; i<64;i++){
+      allWaves[i].draw();
+    }
+
+    if (credits_underwater_y<0) credits_underwater_y += 0.18;
+
+    credits_underwater_canvas.draw(mycanvas,0,credits_underwater_y);
 
     for (i = 0; i<sinusScrolltext.length;i++){
       flyScrollAllText[i].draw(credits_scroller_canvas);
     }
 
-
     credits_scroller_canvas.contex.globalCompositeOperation='source-atop';
     credits_gradient.draw(credits_scroller_canvas,0,0);
-    credits_scroller_canvas.quad(0,0,320,50,c64.colors.white);
     credits_scroller_canvas.contex.globalCompositeOperation='source-over';
 
-    credits_scroller_canvas.draw(mycanvas,10,0);
+    // reflection on top
+    credits_scroller_canvas.drawPart(mycanvas,10,18,0,0,320,10,1,0,1,-1);
+    credits_scroller_canvas.draw(mycanvas,10,20);
 
 
 }
