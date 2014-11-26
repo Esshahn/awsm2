@@ -5,7 +5,7 @@ function credits_init()
   mycanvas.clear();
 
   credits_underwater_320 = new image("gfx/credits_underwater_320.gif");
-  credits_underwater_canvas = new canvas(320,180);
+  credits_underwater_canvas = new canvas(320,185);
   credits_gradient = new image("gfx/credits_gradient.gif");
   credits_font = new image("gfx/slimfont_awsm.gif");
   credits_font2 = new image("gfx/font_hotline.gif");
@@ -19,25 +19,46 @@ function credits_init()
   credits_underwater_y=-170;
 
   sinusScrolltext =  "THE END";
+
   sinusScrolltext += "$$$THE EDGE OF DISGUST";
   sinusScrolltext += "$A C64 DEMO BY AWSM";
-  sinusScrolltext += "$CREATED WITH CODEF IN 2014";
-  sinusScrolltext += "$$HOPE YOU LIKED IT!";
+  sinusScrolltext += "$CREATED IN 2014";
+
+  sinusScrolltext += "$$HOPE YOU LIKED IT.";
+
   sinusScrolltext += "$$MAKING THIS DEMO WAS";
   sinusScrolltext += "$AN AMAZING EXPERIENCE.";
-  sinusScrolltext += "$I REVISITED SO MANY EXCELLENT";
+  sinusScrolltext += "$I REVISITED MANY EXCELLENT";
   sinusScrolltext += "$C64 PRODUCTIONS AGAIN, SOME";
   sinusScrolltext += "$OF THEM NOTHING LESS THAN";
   sinusScrolltext += "$LEGENDARY.";
+
   sinusScrolltext += "$$SO BEFORE GOING INTO THE";
   sinusScrolltext += "$CREDITS AND SOME MORE INFO";
   sinusScrolltext += "$ABOUT THIS DEMO, I WANT";
-  sinusScrolltext += "$TO SAY THANK YOU TO ALL";
-  sinusScrolltext += "$THOSE CODERS, ARTISTS AND";
-  sinusScrolltext += "$MUSICIANS THAT BROUGHT ME";
-  sinusScrolltext += "$SO MANY GOOD MEMORIES AND";
-  sinusScrolltext += "$STILL AMAZE ME WITH THEIR";
+  sinusScrolltext += "$TO THANK ALL THOSE CODERS,";
+  sinusScrolltext += "$ARTISTS AND MUSICIANS";
+  sinusScrolltext += "$THAT BROUGHT ME SO MANY";
+  sinusScrolltext += "$GREAT MEMORIES AND STILL";
+  sinusScrolltext += "$AMAZE ME WITH THEIR";
   sinusScrolltext += "$CREATIVITY TODAY.";
+
+  sinusScrolltext += "$$$     THE GREETINGS:";
+  sinusScrolltext += "$$ AIRO";
+  sinusScrolltext += "$$         AYOROS";
+  sinusScrolltext += "$$    DANE";
+  sinusScrolltext += "$$                GANDALF";
+  sinusScrolltext += "$$   JARI VUOKSENRANTA";
+  sinusScrolltext += "$$  LINUS";
+  sinusScrolltext += "$$          MELLOW MAN";
+  sinusScrolltext += "$$NEW CORE";
+  sinusScrolltext += "$$                NONAMENO";
+  sinusScrolltext += "$$            SOLO";
+  sinusScrolltext += "$$    SUBZERO";
+  sinusScrolltext += "$$             TINY'R'SID";
+  sinusScrolltext += "$$ TOTORMAN";
+  sinusScrolltext += "$$     AND ALL CODEF DEVS";
+  
 
   credits_init_flyscroll(sinusScrolltext);
 
@@ -111,6 +132,7 @@ function credits_init_waves(){
   }
 }
 
+
 function credits_Waves(yPos,sin){
   this.yPos = yPos;
   this.sin = sin;
@@ -120,8 +142,6 @@ function credits_Waves(yPos,sin){
     credits_underwater_canvas.drawPart(credits_underwater_canvas,0,this.yPos,Math.floor(Math.sin(this.sin)*5),this.yPos,320,1);
     this.sin += 0.02;
   }
-
-
 }
 
 
@@ -151,8 +171,8 @@ function credits_render()
     credits_scroller_canvas.contex.globalCompositeOperation='source-over';
 
     // reflection on top
-    credits_scroller_canvas.drawPart(mycanvas,10,18,0,0,320,10,1,0,1,-1);
-    credits_scroller_canvas.draw(mycanvas,10,20);
+    credits_scroller_canvas.drawPart(mycanvas,10,16,0,0,320,10,1,0,1,-1);
+    credits_scroller_canvas.draw(mycanvas,10,15);
 
 
 }
