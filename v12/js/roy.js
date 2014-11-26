@@ -9,7 +9,8 @@ function roy_init(){
   roy_bg_canvas = new canvas (320,100);
   roy_fg_canvas = new canvas (320,133);
   roy_text_y = 440;
-  if (demoIsLive) playSong('sid/Bladerunner.sid',0);
+
+  playSong('sid/Bladerunner.sid',0);
 
   rain = new Rain(roy_fg_canvas,rain_gfx,6,10,14);
   rain_bg = new Rain(roy_bg_canvas,rain_gfx_bg,120,8,10);
