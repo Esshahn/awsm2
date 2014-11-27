@@ -17,16 +17,16 @@ function credits_init()
 
   credits_underwater_y=-170;
 
-  sinusScrolltext =  "THE END";
+  sinusScrolltext =  "           THE END";
 
-  sinusScrolltext += "$$$THE EDGE OF DISGUST";
-  sinusScrolltext += "$A C64 DEMO BY AWSM";
-  sinusScrolltext += "$CREATED IN 2014";
+  sinusScrolltext += "$$$$    'THE EDGE OF DISGUST'";
+  sinusScrolltext += "$      A C64 demo by AWSM";
+  sinusScrolltext += "$       created in 2014";
 
-  sinusScrolltext += "$$HOPE YOU LIKED IT.";
+  sinusScrolltext += "$$     I hope you liked it.";
 
-  sinusScrolltext += "$$MAKING THIS DEMO WAS";
-  sinusScrolltext += "$AN AMAZING EXPERIENCE.";
+  sinusScrolltext += "$$$$$Making this demo was";
+  sinusScrolltext += "$an amazing experience.";
   sinusScrolltext += "$I REVISITED MANY EXCELLENT";
   sinusScrolltext += "$C64 PRODUCTIONS AGAIN, SOME";
   sinusScrolltext += "$OF THEM NOTHING LESS THAN";
@@ -70,7 +70,7 @@ function credits_init_flyscroll(text)
 
   flyScrollText = text;
   flyScrollAllText = [];
-  flyScrollFontWidth = 7;
+  flyScrollFontWidth = 8;
   flyScrollX = 0;
   flyScrollY = 0;
   flyScrollStartSin = 0;
@@ -170,8 +170,8 @@ function credits_render()
     credits_scroller_canvas.contex.globalCompositeOperation='source-over';
 
     // reflection on top
-    credits_scroller_canvas.drawPart(mycanvas,10,16,0,0,320,10,1,0,1,-1);
-    credits_scroller_canvas.draw(mycanvas,10,15);
+    credits_scroller_canvas.drawPart(mycanvas,40,16,0,0,320,10,1,0,1,-1);
+    credits_scroller_canvas.draw(mycanvas,40,15);
 
 
 }
