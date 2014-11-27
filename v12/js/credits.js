@@ -7,10 +7,9 @@ function credits_init()
   credits_underwater_320 = new image("gfx/credits_underwater_320.gif");
   credits_underwater_canvas = new canvas(320,185);
   credits_gradient = new image("gfx/credits_gradient.gif");
-  credits_font = new image("gfx/slimfont_awsm.gif");
-  credits_font2 = new image("gfx/font_hotline.gif");
-  credits_font2.initTile(8,8,33);
-  credits_font.initTile(10,21,32);
+  credits_font = new image("gfx/font_wiki.gif");
+  credits_font.initTile(8,16,32);
+
 
   credits_scroller_canvas = new canvas (300,200);
 
@@ -58,7 +57,7 @@ function credits_init()
   sinusScrolltext += "$$             TINY'R'SID";
   sinusScrolltext += "$$ TOTORMAN";
   sinusScrolltext += "$$     AND ALL CODEF DEVS";
-  
+
 
   credits_init_flyscroll(sinusScrolltext);
 
@@ -71,7 +70,7 @@ function credits_init_flyscroll(text)
 
   flyScrollText = text;
   flyScrollAllText = [];
-  flyScrollFontWidth = 11;
+  flyScrollFontWidth = 7;
   flyScrollX = 0;
   flyScrollY = 0;
   flyScrollStartSin = 0;
@@ -79,7 +78,7 @@ function credits_init_flyscroll(text)
   for (i = 0; i<flyScrollText.length;i++){
     if (flyScrollText[i]=="$"){
       flyScrollX=0;
-      flyScrollY+=21;
+      flyScrollY+=18;
       flyScrollX = -(i+1) * flyScrollFontWidth;
       flyScrollStartSin = 0;
     }
