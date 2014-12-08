@@ -23,6 +23,7 @@
 <script>
 function fullscr(elemId) {
 			var elem = document.getElementById(elemId);
+			console.log(screen.height);
 			if (elem.requestFullscreen) {
 				elem.requestFullscreen();
 			} else if (elem.mozRequestFullScreen) {
@@ -34,13 +35,17 @@ function fullscr(elemId) {
 </script>
 
 <body onload="init()" >
-	<button onclick="fullscr('main');">Fullscreen</button>
+
+	<div id="info_container">
+		<button onclick="fullscr('main');">Fullscreen</button>
+	</div>
+
   <div id="mainscreen">
 			<img class='img' src="gfx/1084s_reduced.png" alt="" />
-      <div id="main"></div>
-
+			<div id ="canvas_container">
+				<div id="main"></div>
+			</div>
   </div>
-
 
 </body>
 </html>

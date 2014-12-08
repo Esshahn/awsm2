@@ -17,16 +17,21 @@ body
 }
 
 #mainscreen{
-
+  padding: 20px;
 }
 
-#main
+#canvas_container
+{
+  position:relative;
+  left:108px;
+  top:120px;
+  z-index:1;
+}
+
+#info_container
 {
 
-  position:absolute;
-  left:110px;
-  top:140px;
-  z-index:1;
+
 }
 
 #main:-moz-full-screen,
