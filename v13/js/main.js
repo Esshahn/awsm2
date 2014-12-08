@@ -2,7 +2,7 @@ function init(){
 
   // the stage canvas includes the c64 stages
   // canvas is 320*200 scaled up to 640*400, so the borders are 60 pixels each
-  stage = new canvas(760,520,"main");
+  stage = new canvas(760,580,"main");
   stage.contex.imageSmoothingEnabled = false;
   stage.contex.mozImageSmoothingEnabled = false;
   stage.contex.oImageSmoothingEnabled = false;

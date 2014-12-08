@@ -5,15 +5,28 @@ html, body
   padding: 0;
 }
 
+.img{
+  position:absolute;
+  z-index:30;
+  }
+
 body
 {
-  background-color: #222222;
+  background-color: #666666;
   font-family: 'Courier New';
 }
 
 #mainscreen{
-  padding-top: 10px;
 
+}
+
+#main
+{
+
+  position:absolute;
+  left:110px;
+  top:122px;
+  z-index:1;
 }
 
 #main:-moz-full-screen,
