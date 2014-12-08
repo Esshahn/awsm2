@@ -44,7 +44,7 @@ function credits_init()
   sinusScrolltext += "$memories and still amaze me";
   sinusScrolltext += "$with their creativity today.";
   sinusScrolltext += "$$         THANK YOU.";
-
+/*
   sinusScrolltext += "$$$       THE GREETINGS:";
   sinusScrolltext += "$$ AIRO";
   sinusScrolltext += "$$         AYOROS";
@@ -136,7 +136,7 @@ function credits_init()
   sinusScrolltext += "$I'm a big fan of his work and the";
   sinusScrolltext += "$soundtrack for 'Edge of Disgrace'";
   sinusScrolltext += "$is among the best ever done.";
-
+*/
 
   credits_init_flyscroll(sinusScrolltext);
 

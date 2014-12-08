@@ -10,7 +10,7 @@ function init(){
   stage.fill("#000000");
   mycanvas = new canvas(320,200);    // the inner screen of the C64
   mycanvas160 = new canvas (160,200); // the inner screen of the C64 with low resolution
-  border = new canvas(380,260);      // the border of the C64
+  border = new canvas(380,320);      // the border of the C64
 
   // -----------------
 

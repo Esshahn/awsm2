@@ -133,7 +133,7 @@ function clearScreen(){
     mycanvas.quad(0,100-counter,320,counter*2,this.c64.colors["light_blue"]);
   }
 
-  if(counter > 120 && counter <= 410){
+  if(counter > 120 && counter <= 460){
     if(typeof counter2 == "undefined") counter2 = 0;
     mycanvas.fill(c64.colors["light_blue"]);
     stage.fill(c64.colors["light_blue"]);
@@ -142,7 +142,7 @@ function clearScreen(){
     counter2+=2;
   }
 
-  if(counter > 450){
+  if(counter > 520){
     mycanvas.fill(c64.colors["black"]);
     stage.fill(c64.colors["black"]);
     border.clear();
