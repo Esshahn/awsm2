@@ -4,7 +4,7 @@ function credits_init()
   mycanvas160.clear();
   mycanvas.clear();
 
-  credits_underwater_320 = new image("gfx/credits_underwater_320.gif");
+
   credits_underwater_canvas = new canvas(320,185);
   credits_gradient = new image("gfx/credits_gradient.gif");
   credits_bubble1 = new image("gfx/credits_bubble1.gif");
@@ -17,7 +17,7 @@ function credits_init()
 
   credits_scroller_canvas = new canvas (300,200);
 
-  playSong('sid/Arctic_Circles.sid',0);
+//  playSong('sid/Arctic_Circles.sid',0);
 
   credits_underwater_y=-170;
 
@@ -44,7 +44,7 @@ function credits_init()
   sinusScrolltext += "$memories and still amaze me";
   sinusScrolltext += "$with their creativity today.";
   sinusScrolltext += "$$         THANK YOU.";
-/*
+
   sinusScrolltext += "$$$       THE GREETINGS:";
   sinusScrolltext += "$$ AIRO";
   sinusScrolltext += "$$         AYOROS";
@@ -136,7 +136,7 @@ function credits_init()
   sinusScrolltext += "$I'm a big fan of his work and the";
   sinusScrolltext += "$soundtrack for 'Edge of Disgrace'";
   sinusScrolltext += "$is among the best ever done.";
-*/
+
 
   credits_init_flyscroll(sinusScrolltext);
 
@@ -202,8 +202,8 @@ function credits_init_flyscroll(text)
       flyScrollStartSin = 0;
     }
 
-    flyScrollAllText[i] = new FlyScroll (flyScrollText[i],flyScrollX+flyScrollFontWidth*i,200+flyScrollY,0.2,flyScrollStartSin,0.05);
-    flyScrollStartSin -= 0.25;
+    flyScrollAllText[i] = new FlyScroll (flyScrollText[i],flyScrollX+flyScrollFontWidth*i,200+flyScrollY,0.3,flyScrollStartSin,0.06);
+    flyScrollStartSin -= 0.15;
 
   }
 
@@ -224,17 +224,20 @@ function FlyScroll(text, xPos, yPos, speed, initSin, ampSin)
 
   this.draw = function(canvas)
   {
+
     if (this.yPos > -50){
-
       this.canvas = canvas;
-
       this.yPos -= this.speed;
       this.sinus = Math.floor(Math.sin(this.initSin)*10);
       this.initSin += this.ampSin;
-
-      credits_font.print(this.canvas,this.text,this.xPos,this.yPos+this.sinus);
-
     }
+
+    if (this.yPos > -50 && this.yPos < 200){
+      credits_font.print(this.canvas,this.text,this.xPos,this.yPos+this.sinus);
+    }
+
+
+
   }
 
 }
@@ -270,22 +273,18 @@ function credits_render()
     stage.fill(c64.colors.black);
     credits_scroller_canvas.clear();
 
-    credits_underwater_320.draw(credits_underwater_canvas,0,0);
 
     for (i = 0; i<allWaves.length;i++){
       allWaves[i].draw();
     }
 
 
-    credits_underwater_canvas.draw(mycanvas,0,credits_underwater_y);
+  //  credits_underwater_canvas.draw(mycanvas,0,credits_underwater_y);
 
-    if (credits_underwater_y<0){
-      credits_underwater_y += 0.18;
-    }else{
+
       for (i = 0; i< allBubbles.length; i++){
         allBubbles[i].draw(credits_scroller_canvas);
       }
-    }
 
 
     for (i = 0; i<sinusScrolltext.length;i++){

@@ -16,11 +16,11 @@ function eaglesoft_init(){
 
   blackbox = new BlackBox();
   blackbox.init();
-  if (demoIsLive) playSong('sid/Future_Knight.sid',0);
+
   scrollerColorX=0;
   stage.fill("#000000");
 
-
+  if (demoIsLive) playSong('sid/Future_Knight.sid',0);
 }
 
 
@@ -42,6 +42,7 @@ function BlackBox(){
       this.y+=0.8;
     }else{
       myscrolltext.draw(190);
+
     }
 
   };
