@@ -23,16 +23,14 @@ function uridium_init(){
   myscrolltext.init(mycanvas,myfont,2.4,myscrollparam);
 
 
-  var my2dstarsparams=[
-    {nb:50, speedy:0, speedx:2.5, color:'#FFFFFF', size:1},
-    {nb:50, speedy:0, speedx:1.8, color:'#ffffff', size:1},
-    {nb:50, speedy:0, speedx:1.4, color:'#ffffff', size:1},
-              ];
-  my2dstarfield=new starfield2D_dot(mycanvas,my2dstarsparams);
-
   if (demoIsLive) playSong('sid/Cool_Croc_Twins.sid',5);
 
+  uridium_starfield = new Starfield(mycanvas,100,1,5);
+
 }
+
+
+
 
 
 function logoMoveAndGradient(){
@@ -117,7 +115,7 @@ function colorcycleFont(){
 function uridium_render(){
     stage.fill(c64.colors["black"]);
     mycanvas.fill(c64.colors["black"]);
-    my2dstarfield.draw();
+    uridium_starfield.draw(mycanvas);
     drawGreyTiles();
     logoMoveAndGradient();
     myscrolltext.draw(110);

@@ -5,6 +5,41 @@
 */
 
 
+function Starfield(canvas,amount,minSpeed,maxSpeed){
+  this.canvas = canvas;
+  this.amount = amount;
+  this.minSpeed = minSpeed;
+  this.maxSpeed = maxSpeed;
+
+  this.allStars = [];
+
+  for(var i = 0; i<this.amount; i++){
+    this.star = {
+      speed: this.minSpeed + Math.floor(Math.random()*(this.maxSpeed+1-this.minSpeed) ),
+      x: Math.floor(Math.random()*this.canvas.width),
+      y: Math.floor(Math.random()*this.canvas.height)
+    }
+
+    this.allStars.push(this.star);
+
+  }
+
+
+  this.draw = function(canvas){
+    this.canvas = canvas;
+    for(var i = 0; i<this.amount; i++){
+      this.canvas.quad(this.allStars[i].x,this.allStars[i].y,2,1,c64.colors.white);
+      this.allStars[i].x-=this.allStars[i].speed;
+      if(this.allStars[i].x < -50){
+        this.allStars[i].x = this.canvas.width;
+        this.allStars[i].y = Math.floor(Math.random()*this.canvas.height);;
+      }
+    }
+  }
+
+}
+
+
 function shuffle(o){
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
