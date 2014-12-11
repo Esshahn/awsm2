@@ -63,6 +63,7 @@ function checkKeyPressed(e){
   var keyCode = e.keyCode;
 
   if (keyCode == 32){
+    e.preventDefault(); // block scrolling behaviour of browsers for pressing 'space'
     border.clear();
     mycanvas.clear();
     mycanvas160.clear();
@@ -156,6 +157,16 @@ function render(){
   mycanvas160.draw(stage,60,60,1,0,4,2);
   border.draw(stage,0,0,1,0,2,2);
 
-  if (demoIsLive) c64.showScanlines();
+  // only show the scanlines whenn in live mode and not in fullscreen
+  if (demoIsLive &&
+    !(document.fullscreenElement ||
+    document.webkitFullscreenElement ||
+    document.mozFullScreenElement ||
+    document.msFullscreenElement)) {
+    c64.showScanlines();
+  }
+
+
+
   requestAnimFrame(render);
 }
