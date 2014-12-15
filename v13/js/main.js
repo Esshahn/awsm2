@@ -97,56 +97,64 @@ function render(){
     case 1:
             clearScreen();
             break;
-    case 2:
+
+    case 2: fullofsinus_init();
+            playPart++;
+            break;
+
+    case 3: fullofsinus_render();
+            break;
+
+    case 4:
             eaglesoft_init();
             playPart ++;
             break;
-    case 3:
+    case 5:
             eaglesoft_render();
             break;
-    case 4:
+    case 6:
             whiteToBlack();
             break;
-    case 5:
+    case 7:
             uridium_init();
             playPart ++;
             break;
-    case 6:
+    case 8:
             uridium_render();
             break;
-    case 7:
+    case 9:
             star_init();
             playPart++;
             break;
-    case 8:
+    case 10:
             star_render();
             break;
-    case 9:
+    case 11:
             plasma_init();
             playPart++;
             break;
-    case 10:
+    case 12:
             plasma_render();
             break;
-    case 11:
+    case 13:
             karma_init();
             playPart++;
             break;
-    case 12:
+    case 14:
             karma_render();
             break;
-    case 13:
+    case 15:
             roy_init();
             playPart++;
             break;
-    case 14:
+    case 16:
             roy_render();
             break;
-    case 15:
+    case 17:
             credits_init();
             playPart++;
             break;
-    case 16:
+    case 18:
             credits_render();
             break;
   }

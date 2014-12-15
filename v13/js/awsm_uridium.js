@@ -25,7 +25,7 @@ function uridium_init(){
 
   if (demoIsLive) playSong('sid/Cool_Croc_Twins.sid',5);
 
-  uridium_starfield = new Starfield(mycanvas,100,1,5);
+  uridium_starfield = new Starfield(mycanvas,100,2,1,1,0,1,5,[c64.colors.white,c64.colors.dark_grey,c64.colors.grey,c64.colors.light_grey]);
 
 }
 
@@ -113,8 +113,8 @@ function colorcycleFont(){
 }
 
 function uridium_render(){
-    stage.fill(c64.colors["black"]);
-    mycanvas.fill(c64.colors["black"]);
+    stage.fill(c64.colors.black);
+    mycanvas.fill(c64.colors.black);
     uridium_starfield.draw(mycanvas);
     drawGreyTiles();
     logoMoveAndGradient();

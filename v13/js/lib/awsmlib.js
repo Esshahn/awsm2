@@ -5,20 +5,40 @@
 */
 
 
-function Starfield(canvas,amount,minSpeed,maxSpeed){
+function Starfield(canvas,amount,w,h,xdir, ydir, minSpeed,maxSpeed,colors){
+  /*
+
+  canvas = the canvas to display
+  amount = number of stars to display
+  w = width of a star in pixels
+  h = height of a star in pixels
+  xdir = horizontal direction (0, 1 or -1)
+  ydir = vertical direction (0, 1 or -1)
+  minSpeed = the minimum speed a star can have
+  maxSpeed = the maximum speed a star can have
+  colors = array with colors, e.g. ["#ff0000", "#FF00FF"]
+
+  */
   this.canvas = canvas;
   this.amount = amount;
   this.minSpeed = minSpeed;
   this.maxSpeed = maxSpeed;
+  this.w = w;
+  this.h = h;
+  this.xdir = xdir;
+  this.ydir = ydir;
+  this.colors = colors;
 
   this.allStars = [];
 
   for(var i = 0; i<this.amount; i++){
     this.star = {
-      speed: this.minSpeed + Math.floor(Math.random()*(this.maxSpeed+1-this.minSpeed) ),
+      speed: this.minSpeed + Math.random()*(this.maxSpeed-this.minSpeed),
       x: Math.floor(Math.random()*this.canvas.width),
-      y: Math.floor(Math.random()*this.canvas.height)
-    }
+      y: Math.floor(Math.random()*this.canvas.height),
+      c: this.colors[Math.floor(Math.random()*this.colors.length)]
+
+    };
 
     this.allStars.push(this.star);
 
@@ -28,14 +48,34 @@ function Starfield(canvas,amount,minSpeed,maxSpeed){
   this.draw = function(canvas){
     this.canvas = canvas;
     for(var i = 0; i<this.amount; i++){
-      this.canvas.quad(this.allStars[i].x,this.allStars[i].y,2,1,c64.colors.white);
-      this.allStars[i].x-=this.allStars[i].speed;
-      if(this.allStars[i].x < -50){
-        this.allStars[i].x = this.canvas.width;
-        this.allStars[i].y = Math.floor(Math.random()*this.canvas.height);;
+      this.canvas.quad(Math.floor(this.allStars[i].x),Math.floor(this.allStars[i].y),this.w,this.h,this.allStars[i].c);
+
+      this.allStars[i].x += this.xdir * this.allStars[i].speed;
+      this.allStars[i].y += this.ydir * this.allStars[i].speed;
+
+      if(this.allStars[i].x < -this.w){
+        this.allStars[i].x = this.canvas.width+this.w;
+        this.allStars[i].y =Math.random()*this.canvas.height;
       }
+
+      if(this.allStars[i].x > this.canvas.width +this.w){
+        this.allStars[i].x = 0-this.w;
+        this.allStars[i].y = Math.random()*this.canvas.height;
+      }
+
+      if(this.allStars[i].y < -this.h){
+        this.allStars[i].y = this.canvas.height+this.h;
+        this.allStars[i].x = Math.random()*this.canvas.width;
+      }
+
+      if(this.allStars[i].y > this.canvas.height +this.h){
+        this.allStars[i].y = 0-this.h;
+        this.allStars[i].x = Math.random()*this.canvas.width;
+      }
+
+
     }
-  }
+  };
 
 }
 
