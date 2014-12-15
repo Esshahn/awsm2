@@ -110,7 +110,7 @@ function AnimGIF (file,width,height,loops,delay){
       if(this.loop > this.loops) this.loop = 0;
     }
 
-  }
+  };
 }
 
 

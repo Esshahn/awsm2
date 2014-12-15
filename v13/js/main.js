@@ -98,20 +98,24 @@ function render(){
             clearScreen();
             break;
 
-    case 2: fullofsinus_init();
-            playPart++;
-            break;
-
-    case 3: fullofsinus_render();
-            break;
-
-    case 4:
+    case 2:
             eaglesoft_init();
             playPart ++;
             break;
-    case 5:
+
+    case 3:
             eaglesoft_render();
             break;
+
+    case 4:
+            fullofsinus_init();
+            playPart++;
+            break;
+
+    case 5:
+            fullofsinus_render();
+            break;
+
     case 6:
             whiteToBlack();
             break;
