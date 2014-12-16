@@ -17,7 +17,7 @@ function credits_init()
 
   credits_scroller_canvas = new canvas (300,200);
 
-//  playSong('sid/Arctic_Circles.sid',0);
+  playSong('sid/Arctic_Circles.sid',0);
 
   credits_underwater_y=-170;
 
