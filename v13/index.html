@@ -18,32 +18,13 @@
 <script type="text/javascript" src="js/lib/TinyJSid.js"></script>
 <script type="text/javascript" src="js/lib/TinyJSidWrapper.js"></script>
 
-
-<script>
-function fullscr(elemId) {
-			var elem = document.getElementById(elemId);
-			if (elem.requestFullscreen) {
-				elem.requestFullscreen();
-			} else if (elem.mozRequestFullScreen) {
-				elem.mozRequestFullScreen();
-			} else if (elem.webkitRequestFullScreen) {
-				elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-			}
-		}
-</script>
-
 <body onload="init()" >
-
-	<div id="info_container">
-		<button onclick="fullscr('main');">Fullscreen</button>
-	</div>
-
   <div id="mainscreen">
-			<img class='img' src="gfx/1084s_reduced.png" alt="" />
+			<img class='img' src="gfx/1084s_reduced_postit_sticker.png" alt="" />
 			<div id ="canvas_container">
 				<div id="main"></div>
 			</div>
   </div>
-
 </body>
+
 </html>

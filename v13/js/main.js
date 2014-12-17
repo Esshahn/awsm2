@@ -70,6 +70,11 @@ function checkKeyPressed(e){
     playPart ++;
   }
 
+  if (keyCode == 70){
+    e.preventDefault(); // block behaviour of browsers for pressing 'f'
+    fullscr('main');
+  }
+  
   if (keyCode == 80){
 
     if (playPart == 0){

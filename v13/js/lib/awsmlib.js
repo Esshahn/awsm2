@@ -4,6 +4,17 @@
 
 */
 
+function fullscr(elemId) {
+  var elem = document.getElementById(elemId);
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) {
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullScreen) {
+    elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+  }
+}
+
 
 function Starfield(canvas,amount,w,h,xdir, ydir, minSpeed,maxSpeed,colors){
   /*
