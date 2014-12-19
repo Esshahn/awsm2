@@ -19,7 +19,7 @@ function fullofsinus_init()
   fos_blend_white = new Blend(mycanvas160,2,1);
 
   if (demoIsLive) playSong('sid/Odisey_2001_AD.sid',0);
-  //playSong('sid/Odisey_2001_AD.sid',0);
+  border.fill("#000000");
 }
 
 

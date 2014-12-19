@@ -150,7 +150,6 @@ function C64Load(){
     // loading
 
     if(typeof(this.delay3) == "undefined") this.delay3 = 0;
-    if(typeof(this.decrunchHeight) == "undefined") this.decrunchHeight = 0;
 
     this.font.print(this.canvas,this.typeText,0,47);
     this.font.print(this.canvas,"SEARCHING FOR "+this.game,0,63);
@@ -218,5 +217,6 @@ function C64Load(){
     this.currentAnimStage ++;
     requestAnimFrame(this.callFunctionWhenDone);
   };
+
 
 }

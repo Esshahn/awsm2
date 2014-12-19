@@ -1,6 +1,8 @@
 
 function plasma_init(){
 
+  stage.fill(c64.colors["black"]);
+
     plasma_rasterlines = new image("gfx/plasma_rasterlines.gif");
     plasma_ballz_a = new image("gfx/plasma_ballz_a.gif");
     plasma_ballz_w = new image("gfx/plasma_ballz_w.gif");
@@ -348,7 +350,7 @@ function plasma_rasterbars(boxcolor,linecolor){
   plasma_ball_1.draw(border);
   border.contex.globalCompositeOperation='source-over';
 
-  border.quad(0,30,380,1,c64.colors[linecolor]);
+  border.quad(0,29,380,1,c64.colors[linecolor]);
   border.quad(0,230,380,1,c64.colors[linecolor]);
 
 }
@@ -374,10 +376,6 @@ function Plasma_Ball(sprite,xPos,sinY){
 
 function plasma_render()
 {
-  border.clear();
-   stage.fill(c64.colors["black"]);
-   mycanvas160.fill(c64.colors["black"]);
-
 
    switch(plasma_part){
 

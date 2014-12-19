@@ -39,6 +39,8 @@ function init(){
 
   c64 = new C64Load();    // needs to be set always (e.g. for colors)
 
+  decrunch = new Decrunch(c64.colors,c64.colors.blue,c64.colors.light_blue,mycanvas,border,"@@@",200);
+
   // -----------------
   // Adding a variable "dev" as a URL param switches to dev mode
   // and starts with the demo part number set by m
@@ -64,17 +66,14 @@ function checkKeyPressed(e){
 
   if (keyCode == 32){
     e.preventDefault(); // block scrolling behaviour of browsers for pressing 'space'
-    border.clear();
-    mycanvas.clear();
-    mycanvas160.clear();
-    playPart ++;
+    callNextPart();
   }
 
   if (keyCode == 70){
     e.preventDefault(); // block behaviour of browsers for pressing 'f'
     fullscr('main');
   }
-  
+
   if (keyCode == 80){
 
     if (playPart == 0){
@@ -84,6 +83,13 @@ function checkKeyPressed(e){
       playPart = 0;
     }
   }
+}
+
+function callNextPart(){
+  border.clear();
+  mycanvas.clear();
+  mycanvas160.clear();
+  playPart++;
 }
 
 
@@ -105,74 +111,78 @@ function render(){
 
     case 2:
             eaglesoft_init();
-            playPart ++;
+            callNextPart();
             break;
 
     case 3:
             eaglesoft_render();
             break;
 
-    case 4:
-            fullofsinus_init();
-            playPart++;
+    case 4: decrunch.draw();
             break;
 
     case 5:
-            fullofsinus_render();
+            fullofsinus_init();
+            callNextPart();
             break;
 
     case 6:
+            fullofsinus_render();
+            break;
+
+    case 7:
             whiteToBlack();
             break;
-    case 7:
-            uridium_init();
-            playPart ++;
-            break;
     case 8:
-            uridium_render();
+            uridium_init();
+            callNextPart();
             break;
     case 9:
-            star_init();
-            playPart++;
+            uridium_render();
             break;
     case 10:
-            star_render();
+            star_init();
+            callNextPart();
             break;
     case 11:
-            plasma_init();
-            playPart++;
+            star_render();
             break;
     case 12:
-            plasma_render();
+            plasma_init();
+            callNextPart();
             break;
     case 13:
-            karma_init();
-            playPart++;
+            plasma_render();
             break;
     case 14:
-            karma_render();
+            karma_init();
+            callNextPart();
             break;
     case 15:
-            roy_init();
-            playPart++;
+            karma_render();
             break;
     case 16:
-            roy_render();
+            roy_init();
+            callNextPart();
             break;
     case 17:
-            credits_init();
-            playPart++;
+            roy_render();
             break;
     case 18:
+            credits_init();
+            callNextPart();
+            break;
+    case 19:
             credits_render();
             break;
   }
 
   // draw the 320*200 canvas on the scaled stage including the stages
 
+  border.draw(stage,0,0,1,0,2,2);
   mycanvas.draw(stage,60,60,1,0,2,2);
   mycanvas160.draw(stage,60,60,1,0,4,2);
-  border.draw(stage,0,0,1,0,2,2);
+
 
   // only show the scanlines whenn in live mode and not in fullscreen
   if (demoIsLive &&

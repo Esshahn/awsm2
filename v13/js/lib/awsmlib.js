@@ -16,6 +16,47 @@ function fullscr(elemId) {
 }
 
 
+function Decrunch (colors,screencolor,bordercolor,screencanvas,bordercanvas,chars,duration){
+  // decrunch routine
+
+  this.screencolor = screencolor;
+  this.bordercolor = bordercolor;
+  this.chars = chars;
+  this.duration = duration;
+  this.delay = 0;
+  this.colors = colors;
+  this.bordercanvas = bordercanvas;
+  this.screencanvas = screencanvas;
+  this.keys = Object.keys(this.colors);
+
+  this.draw = function(){
+
+    this.delay ++;
+
+    if (this.delay < this.duration*0.6){
+      for(var i = 0; i <= this.bordercanvas.height; i+=4){
+        this.bordercanvas.quad(0,i,this.bordercanvas.width,4,this.colors[this.keys[Math.floor(this.keys.length * Math.random())]] );
+
+      }
+
+      this.screencanvas.fill(this.screencolor);
+      c64.font.print(this.screencanvas,this.chars,0,0);
+    }
+
+    if (this.delay > this.duration*0.6 && this.delay < this.duration){
+      this.bordercanvas.fill(this.bordercolor);
+
+    }
+
+    if (this.delay > this.duration){
+      callNextPart();
+    }
+
+  };
+
+}
+
+
 function Starfield(canvas,amount,w,h,xdir, ydir, minSpeed,maxSpeed,colors){
   /*
 
@@ -407,7 +448,7 @@ function clearScreen(){
 
   if(counter > 120 && counter <= 460){
     if(typeof counter2 == "undefined") counter2 = 0;
-    mycanvas.fill(c64.colors["light_blue"]);
+    mycanvas.clear();
     stage.fill(c64.colors["light_blue"]);
     border.quad(0,border.height-counter2*1.2,border.width,border.height,this.c64.colors["blue"]);
     border.quad(0,border.height-counter2+20,border.width,border.height,this.c64.colors["black"]);
@@ -415,6 +456,7 @@ function clearScreen(){
   }
 
   if(counter > 520){
+
     mycanvas.fill(c64.colors["black"]);
     stage.fill(c64.colors["black"]);
     border.clear();
