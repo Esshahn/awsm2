@@ -270,7 +270,11 @@ function credits_render()
 {
 
     mycanvas.clear();
+    //mycanvas.fill(c64.colors.black);
     stage.fill(c64.colors.black);
+    border.quad(0,58,400,144,c64.colors.blue);
+    border.quad(0,60,400,140,c64.colors.light_blue);
+
     credits_scroller_canvas.clear();
 
 

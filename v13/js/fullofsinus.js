@@ -5,7 +5,7 @@ function fullofsinus_init()
   fos_moon = new image ("gfx/floppy_moon.gif");
   //fos_title = new image ("gfx/fullofsinus_title_2.gif");
   fos_keir = new image ("gfx/2001_keir.gif");
-  fos_title = new image ("gfx/title.gif");
+  fos_title = new image ("gfx/title4.gif");
 
   fos_starfield = new Starfield(mycanvas160,100,1,1,0,-20,0.1,0.1,[c64.colors.white,c64.colors.dark_grey,c64.colors.grey,c64.colors.light_grey]);
   fos_earth.y = 290;
@@ -13,12 +13,14 @@ function fullofsinus_init()
   fos_title.y = 220;
   fos_timer = 0;
   fos_timer_starfield = 0;
-  fos_counter_starfield_speed = -20
+  fos_counter_starfield_speed = -20;
 
-  fos_blend_black = new Blend(mycanvas160,2,0);
-  fos_blend_white = new Blend(mycanvas160,2,1);
+  fos_blend_black = new Blend(mycanvas160,3,0);
+  fos_blend_white = new Blend(mycanvas160,4,1);
+  tiles = new Tiles(mycanvas160,40,20,0.7,"#000000");
 
   if (demoIsLive) playSong('sid/Odisey_2001_AD.sid',0);
+  playSong('sid/Odisey_2001_AD.sid',0);
   border.fill("#000000");
 }
 
@@ -40,7 +42,7 @@ function fullofsinus_render()
   }
 
 
-  if (fos_timer <2000){
+  if (fos_timer <2100){
     fos_starfield.draw(mycanvas160);
 
     if (fos_earth.y > -100) fos_earth.y -= 0.2;
@@ -50,13 +52,15 @@ function fullofsinus_render()
     fos_moon.draw(mycanvas160,0,Math.floor(fos_moon.y));
   }
 
-  if (fos_timer > 1900 && fos_timer < 2000){
+  if (fos_timer > 2000 && fos_timer < 2100){
     fos_blend_black.draw();
   }
 
-  if (fos_timer > 2000){
-    if (fos_title.y > -200) fos_title.y -= 0.5;
-    fos_title.draw(mycanvas160,0,fos_title.y);
+  if (fos_timer > 2100){
+    if (fos_title.y >= 1) fos_title.y -= 0.3;
+  //  fos_title.draw(mycanvas160,0,Math.floor(fos_title.y));
+    fos_title.draw(mycanvas160,0,0);
+    tiles.shrinkYUp();
   }
 
   if (fos_timer > 3200 && fos_timer < 3270){

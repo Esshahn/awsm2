@@ -106,7 +106,8 @@ function render(){
   switch (playPart){
 
     case 1:
-            clearScreen();
+            //clearScreen();
+            callNextPart();
             break;
 
     case 2:
