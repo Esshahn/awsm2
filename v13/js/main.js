@@ -32,7 +32,7 @@ function init(){
   var c64_games = Array(
     "AWSM IS BACK!", "WORLD GAMES/EPYX", "GIANA SISTERS +5",
     "TURRICAN +7", "*", "BUBBLE BOBBLE +","GRAND THEFT AUTO VI",
-    "CALL OF DUTY 4","WINDOWS 3.11","MANIAC MANSION","PARALLAX+++",
+    "FULL OF SINUS","WINDOWS 3.11","MANIAC MANSION","PARALLAX+++",
     "SKATEORDIE!","DEFENDER OF THE CROWN","MIKIE +3 /TRIAD",
     "AMIGA EMULATOR","ATARI ST EMULATOR","M.U.L.E.","GHOSTS'N'GOBLINS -5");
   c64_game = c64_games[Math.floor(Math.random()*c64_games.length)];

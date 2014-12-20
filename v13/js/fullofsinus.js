@@ -15,12 +15,12 @@ function fullofsinus_init()
   fos_timer_starfield = 0;
   fos_counter_starfield_speed = -20;
 
-  fos_blend_black = new Blend(mycanvas160,3,0);
+  fos_blend_black = new Blend(mycanvas160,4,0);
   fos_blend_white = new Blend(mycanvas160,4,1);
-  tiles = new Tiles(mycanvas160,40,20,0.7,"#000000");
+  tiles = new Tiles(mycanvas160,40,20,0.9,"#000000");
 
   if (demoIsLive) playSong('sid/Odisey_2001_AD.sid',0);
-  playSong('sid/Odisey_2001_AD.sid',0);
+  //playSong('sid/Odisey_2001_AD.sid',0);
   border.fill("#000000");
 }
 

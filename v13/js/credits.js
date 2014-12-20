@@ -137,7 +137,6 @@ function credits_init()
   sinusScrolltext += "$soundtrack for 'Edge of Disgrace'";
   sinusScrolltext += "$is among the best ever done.";
 
-
   credits_init_flyscroll(sinusScrolltext);
 
   credits_init_waves();
@@ -147,9 +146,7 @@ function credits_init()
 }
 
 function initBubbles(amount){
-
   allBubbles = [];
-
   for (i = 0; i< amount; i++){
     allBubbles[i] = new Bubble();
   }
@@ -235,11 +232,7 @@ function FlyScroll(text, xPos, yPos, speed, initSin, ampSin)
     if (this.yPos > -50 && this.yPos < 200){
       credits_font.print(this.canvas,this.text,this.xPos,this.yPos+this.sinus);
     }
-
-
-
   }
-
 }
 
 function credits_init_waves(){
