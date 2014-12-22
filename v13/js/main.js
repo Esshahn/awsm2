@@ -119,61 +119,66 @@ function render(){
             eaglesoft_render();
             break;
 
-    case 4: decrunch.draw();
+    case 4:
+            playSong('sid/empty.sid',0);
+            callNextPart();
             break;
 
-    case 5:
+    case 5: decrunch.draw();
+            break;
+
+    case 6:
             fullofsinus_init();
             callNextPart();
             break;
 
-    case 6:
+    case 7:
             fullofsinus_render();
             break;
 
-    case 7:
+    case 8:
             whiteToBlack();
             break;
-    case 8:
+    case 9:
             uridium_init();
             callNextPart();
             break;
-    case 9:
+    case 10:
             uridium_render();
             break;
-    case 10:
-            star_init();
+    case 11:
+            checker_init();
             callNextPart();
             break;
-    case 11:
-            star_render();
-            break;
     case 12:
+            checker_render();
+            break;
+    case 13:
             plasma_init();
             callNextPart();
             break;
-    case 13:
+    case 14:
             plasma_render();
             break;
-    case 14:
+    case 15:
             karma_init();
             callNextPart();
             break;
-    case 15:
+    case 16:
             karma_render();
             break;
-    case 16:
+    case 17:
             roy_init();
             callNextPart();
             break;
-    case 17:
+    case 18:
             roy_render();
             break;
-    case 18:
+    case 19:
             credits_init();
             callNextPart();
             break;
-    case 19:
+    case 20:
             credits_render();
             break;
   }

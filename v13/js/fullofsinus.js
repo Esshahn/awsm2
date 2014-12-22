@@ -3,8 +3,6 @@ function fullofsinus_init()
 
   fos_earth = new image ("gfx/earth.gif");
   fos_moon = new image ("gfx/floppy_moon.gif");
-  //fos_title = new image ("gfx/fullofsinus_title_2.gif");
-  fos_keir = new image ("gfx/2001_keir.gif");
   fos_title = new image ("gfx/title4.gif");
 
   fos_starfield = new Starfield(mycanvas160,100,1,1,0,-20,0.1,0.1,[c64.colors.white,c64.colors.dark_grey,c64.colors.grey,c64.colors.light_grey]);
