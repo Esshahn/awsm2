@@ -61,7 +61,7 @@ myobjvert=[
 {x:-200, y: 50, z:-10},
 ];
 
-col1=0x4444ff;
+col1=0xaaaaaa;
 opa1=1;
 
 
@@ -77,15 +77,15 @@ myobj=[
 
 
 my3d=new codef3D(mycanvas160, 750, 40, 1, 1600 );
-my3d.camera.position.y=-140;
+
 my3d.faces4(myobjvert,myobj, false, true );
-my3d.addAmbiLight(0x333333);
-my3d.addDirLight(0,0,3,0xffffff);
+my3d.addAmbiLight(0x333300);
+my3d.addDirLight(0,-5,5,0xffffff);
 
 
 /* end 3d code */
 
-
+sinus_3d = 0;
 
 }
 
@@ -141,7 +141,7 @@ function checker_render()
 
   rand+=0.002;
   z++;
-
+  border.fill(c64.colors.brown);
   lessFPSCounter ++;
   if (lessFPSCounter >= 3){
     lessFPSCounter = 0;
@@ -150,12 +150,18 @@ function checker_render()
 
     mode7(rand,z,16,50,30);
     mycanvasmini.contex.putImageData(imgd2, 0, 0);
-    mycanvasmini.draw(mycanvas160,10,100);
+    mycanvasmini.draw(mycanvas160,10,80);
 
-  //  my3d.group.rotation.x+=0.01;
-    my3d.group.rotation.y-=0.06;
+    my3d.group.rotation.x-=0.08;
+    my3d.group.position.z = Math.cos(sinus_3d)*100-90;
+    my3d.group.position.y= 150+Math.floor(Math.sin(sinus_3d)*100);
+    sinus_3d += 0.08;
+
+  //  my3d.group.rotation.y-=0.06;
 //    my3d.group.rotation.z+=0.04;
     my3d.draw();
+
+
 
   }
 
