@@ -168,19 +168,27 @@ function render(){
             karma_render();
             break;
     case 17:
-            roy_init();
+            tunnel_init();
             callNextPart();
             break;
     case 18:
-            roy_render();
+            tunnel_render();
             break;
     case 19:
-            credits_init();
+            roy_init();
             callNextPart();
             break;
     case 20:
+            roy_render();
+            break;
+    case 21:
+            credits_init();
+            callNextPart();
+            break;
+    case 22:
             credits_render();
             break;
+
   }
 
   // draw the 320*200 canvas on the scaled stage including the stages
