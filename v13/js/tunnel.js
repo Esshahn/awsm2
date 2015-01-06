@@ -16,13 +16,13 @@ function tunnel_init()
   orig2 = [] ;
   k=0 ;
 
-  nbdots = 30 ;
-  min = -200 ;
+  nbdots = 25 ;
+  min = -250 ;
   max = 0 ;
-  step = 5;
+  step = 3;
 
   eye = {x:0, y:0, z:0};
-  speed= 3 ;
+  speed= 5 ;
 
   spri = 0 ;
 
@@ -34,23 +34,37 @@ function tunnel_init()
   for (var j=min; j<max; j+=step) {
     for (var i=0; i<nbdots; i++) {
       var obj = {
-        x:2*Math.cos(i*Math.PI*2/nbdots),
-        y:4*Math.sin(i*Math.PI*2/nbdots),
+        x:30*Math.cos(i*Math.PI*2/nbdots),
+        y:60*Math.sin(i*Math.PI*2/nbdots),
         z:j
       };
-      if ( i%2 == 0) obj.x = 30*Math.cos(i*Math.PI*2/nbdots) ;
-      if ( i%2 == 0) obj.y = 60*Math.sin(i*Math.PI*2/nbdots) ;
 
       orig[k] = { x:obj.x, y:obj.y,z:obj.z} ;
       orig2[k++] = { x:obj.x, y:obj.y,z:obj.z} ;
     }
   }
 
-  mysprite = new Array();
-  mysprite[0] = generateDot(c64.colors.white) ; //vert
-  mysprite[1] = generateDot(c64.colors.yellow) ; //jaune
-  mysprite[2] = generateDot(c64.colors.light_green) ; //bleu
+/*
+  for (var j=min; j<max; j+=step) {
+    for (var i=0; i<nbdots; i++) {
+      var obj = {
+        x:2*Math.cos(i*Math.PI*2/nbdots),
+        y:4*Math.sin(i*Math.PI*2/nbdots),
+        z:j
+      };
+      if ( i%2 === 0) obj.x = 30*Math.cos(i*Math.PI*2/nbdots) ;
+      if ( i%2 === 0) obj.y = 60*Math.sin(i*Math.PI*2/nbdots) ;
 
+      orig[k] = { x:obj.x, y:obj.y,z:obj.z} ;
+      orig2[k++] = { x:obj.x, y:obj.y,z:obj.z} ;
+    }
+  }
+*/
+  mysprite = [];
+  mysprite[0] = generateDot(c64.colors.green) ;
+  mysprite[1] = generateDot(c64.colors.yellow) ;
+  mysprite[2] = generateDot(c64.colors.purple) ;
+  mysprite[3] = generateDot(c64.colors.light_blue) ;
 }
 
 
@@ -78,7 +92,7 @@ function do_3d(dest,sprite) {
   for (var j=min; j<max; j+=step) {
     for (var i=0; i<nbdots; i++) {
       orig2[k].z += speed ;
-      if ( i%2 == 0 ) orig2[k].z += speed/10 ;
+      if ( i%2 === 0 ) orig2[k].z += speed/10 ;
       if (orig2[k].z>max) {
         orig2[k].z -= max-min ;
         orig2[k].x = orig[k].x + toto1 ;
@@ -100,26 +114,28 @@ function tunnel_render()
 {
   // the lessFPSCounter does what it says. It reduces the FPS to give a retro effect
 
-
+border.quad(0,29,400,1,c64.colors.white);
+border.quad(0,230,400,1,c64.colors.white);
 
   lessFPSCounter ++;
-  if (lessFPSCounter >= 2){
+  if (lessFPSCounter%3===0){
     mycanvas160.fill(c64.colors.black);
     mycanvas_tunnel.clear();
 
     eye.z=Math.sin(tunnel_zDist)*100-100;
-    tunnel_zDist+=0.01;
-
+    tunnel_zDist+=0.02;
+    tunnel_alpha = 0.3+Math.abs(Math.sin(tunnel_zDist));
     a+=0.03;
     fzoom += 0.1 ;
     vbl ++ ;
-    if (vbl%100==0) { spri++ ; spri = spri % mysprite.length ;}
+    if (vbl%100===0) { spri++ ; spri = spri % mysprite.length ;}
 
     do_3d(mycanvas_tunnel,mysprite[spri]) ;
-    lessFPSCounter = 0;
+    mycanvas_tunnel.draw(mycanvas160,0,0,tunnel_alpha) ;
   }
 
-  mycanvas_tunnel.draw(mycanvas160,0,0) ;
 
+
+//  mycanvas_tunnel.draw(mycanvas160,160,200,Math.abs(Math.sin(tunnel_zDist)),180) ;
   colorReduce(mycanvas160);
 }
