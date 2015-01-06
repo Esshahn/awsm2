@@ -1,6 +1,8 @@
 function checker_init(){
 
-  playSong('sid/empty.sid',0);
+  playSong('sid/Shiit.sid',0);
+
+  checker_logo = new image("gfx/awsm_logo_ripley.gif");
 
   stage.fill("#000000");
 
@@ -12,7 +14,7 @@ function checker_init(){
   chessboardvpos = 0;
   chessboardmovey = 0;
 
-  canvas_w = 140;
+  canvas_w = 120;
   canvas_h = 100;
 
   tile_w = 256;
@@ -36,56 +38,69 @@ function checker_init(){
           chessboardhpos=0;
           chessboardvpos+=64;
         }
-        chessboard.quad(chessboardhpos,chessboardvpos,32,32,c64.colors.grey);
-        chessboard.quad(chessboardhpos+32,chessboardvpos+32,32,32,c64.colors.light_grey);
+        chessboard.quad(chessboardhpos,chessboardvpos,32,32,c64.colors.white);
+        chessboard.quad(chessboardhpos+32,chessboardvpos+32,32,32,c64.colors.white);
         chessboardhpos+=64;
-      }
+    }
 
-      imgd = chessboard.contex.getImageData(0, 0, tile_w, tile_h);
-      pix = imgd.data;
-      imgd2 = mycanvasmini.contex.getImageData(0, 0, canvas_w, canvas_h);
-      pix2 = imgd2.data;
-
-
-/* init 3d code */
+  imgd = chessboard.contex.getImageData(0, 0, tile_w, tile_h);
+  pix = imgd.data;
+  imgd2 = mycanvasmini.contex.getImageData(0, 0, canvas_w, canvas_h);
+  pix2 = imgd2.data;
 
 
-myobjvert=[
-{x:-200, y: 50, z: 10},
-{x:-200, y:-50, z: 10},
-{x: 200, y:-50, z: 10},
-{x: 200, y: 50, z: 10},
-{x: 200, y: 50, z:-10},
-{x: 200, y:-50, z:-10},
-{x:-200, y:-50, z:-10},
-{x:-200, y: 50, z:-10},
-];
-
-col1=0xaaaaaa;
-opa1=1;
+  /* init 3d code */
 
 
-myobj=[
-{p1:0, p2:1, p3:2, p4:3, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
-{p1:3, p2:2, p3:5, p4:4, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
-{p1:7, p2:6, p3:1, p4:0, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
-{p1:7, p2:0, p3:3, p4:4, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
-{p1:1, p2:6, p3:5, p4:2, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
-{p1:4, p2:5, p3:6, p4:7, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
+  myobjvert=[
+  {x:-200, y: 50, z: 10},
+  {x:-200, y:-50, z: 10},
+  {x: 200, y:-50, z: 10},
+  {x: 200, y: 50, z: 10},
+  {x: 200, y: 50, z:-10},
+  {x: 200, y:-50, z:-10},
+  {x:-200, y:-50, z:-10},
+  {x:-200, y: 50, z:-10},
+  ];
 
-];
-
-
-my3d=new codef3D(mycanvas160, 750, 40, 1, 1600 );
-
-my3d.faces4(myobjvert,myobj, false, true );
-my3d.addAmbiLight(0x333300);
-my3d.addDirLight(0,-5,5,0xffffff);
+  col1=0xaaaaaa;
+  opa1=1;
 
 
-/* end 3d code */
+  myobj=[
+  {p1:0, p2:1, p3:2, p4:3, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
+  {p1:3, p2:2, p3:5, p4:4, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
+  {p1:7, p2:6, p3:1, p4:0, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
+  {p1:7, p2:0, p3:3, p4:4, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
+  {p1:1, p2:6, p3:5, p4:2, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
+  {p1:4, p2:5, p3:6, p4:7, params:new MeshLambertMaterial({ color: col1, shading: FlatShading})},
 
-sinus_3d = 0;
+  ];
+
+
+  my3d=new codef3D(mycanvas160, 750, 40, 1, 1600 );
+  my3d.camera.position.y= -20;
+  my3d.faces4(myobjvert,myobj, false, true );
+  my3d.addAmbiLight(0x333300);
+  my3d.addDirLight(0,5,10,0xffffff);
+
+
+  /* end 3d code */
+
+  sinus_3d = 0;
+
+
+  // init scroller
+
+  checker_font = new image('gfx/font_wiki.gif');
+  checker_font.initTile(8,16,32);
+
+  checker_scroller = new scrolltext_horizontal();
+  checker_scroller.scrtxt="           This is the dawn of a new era. Many have thought the Amiga will rule this planet for the years to come. How wrong they all have been... Who needs 16bit when you can have antialiased realtime 3D on your beloved 8bit machine? Nobody!!!      Is it witchcraft?          Maybe.         Does it change the demo scene forever?        Probably.       Can only the magicians from AWSM pull this off?         Defnitly-- err defenitely-- err... difeni--         of course.         All hail to the old and new king, the Commodore 64!!!!11                                 ";
+  checker_scroller.init(mycanvas160,checker_font,1);
+
+  // end scroller
+
 
 }
 
@@ -141,30 +156,77 @@ function checker_render()
 
   rand+=0.002;
   z++;
-  border.fill(c64.colors.brown);
+  //border.fill(c64.colors.brown);
   lessFPSCounter ++;
   if (lessFPSCounter >= 3){
+
+    // everything that should have less fps goes here
+
     lessFPSCounter = 0;
 
     mycanvas160.fill(c64.colors.black);
 
+
+    // draw the checkerboard
+
     mode7(rand,z,16,50,30);
     mycanvasmini.contex.putImageData(imgd2, 0, 0);
-    mycanvasmini.draw(mycanvas160,10,80);
+    mycanvasmini.draw(mycanvas160,20,80);
 
-    my3d.group.rotation.x-=0.08;
-    my3d.group.position.z = Math.cos(sinus_3d)*100-90;
-    my3d.group.position.y= 150+Math.floor(Math.sin(sinus_3d)*100);
+    mycanvas160.contex.globalCompositeOperation='darker';
+    mycanvas160.quad(0,80,160,10,c64.colors.brown);
+    mycanvas160.quad(0,90,160,20,c64.colors.orange);
+    mycanvas160.quad(0,110,160,25,c64.colors.yellow);
+    mycanvas160.contex.globalCompositeOperation='source-over';
+
+    // draw the 3d object
+
+    my3d.group.rotation.x+=0.08;
+    my3d.group.position.z = -Math.cos(sinus_3d)*240-200;
+    my3d.group.position.y= 150+Math.floor(Math.sin(sinus_3d)*140);
     sinus_3d += 0.08;
 
-  //  my3d.group.rotation.y-=0.06;
-//    my3d.group.rotation.z+=0.04;
-    my3d.draw();
+    //  my3d.group.rotation.y-=0.06;
+    //  my3d.group.rotation.z+=0.04;
+
+
+
+
+    // based on z position of the 3d object, draw the object or the logo first
+
+    if (my3d.group.position.z > -80){
+
+      checker_logo.draw(mycanvas160,36,15);
+      my3d.draw();
+    }else{
+      my3d.draw();
+
+      checker_logo.draw(mycanvas160,36,15);
+    }
 
 
 
   }
 
+
+  // draw the rasterbar
+
+  border.quad(0,212,460,15,c64.colors.white);
+  border.quad(0,213,460,13,c64.colors.light_grey);
+
+  mycanvas160.quad(0,182,160,15,c64.colors.light_grey);
+  mycanvas160.quad(0,183,160,13,c64.colors.grey);
+
+  mycanvas160.quad(10,182,140,15,c64.colors.grey);
+  mycanvas160.quad(10,183,140,13,c64.colors.dark_grey);
+
+  // draw the scroller
+
+  checker_scroller.draw(182);
+
+
+
+  // map all wrong colors to the c64 palette on the fly
 
   colorReduce(mycanvas160);
 }

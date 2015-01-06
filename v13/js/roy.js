@@ -37,7 +37,7 @@ function Rain(canvas,image,amount,minSpeed,maxSpeed){
           speed: this.minSpeed + Math.floor(Math.random()*(this.maxSpeed+1-this.minSpeed) ),
           x: Math.floor(Math.random()*this.canvas.width),
           y: Math.floor(Math.random()*this.canvas.height)
-        }
+        };
 
         this.shower.push(this.raindrop);
 
@@ -54,7 +54,7 @@ function Rain(canvas,image,amount,minSpeed,maxSpeed){
           this.shower[i].y = -50;
         }
     }
-  }
+  };
 
 }
 
@@ -64,8 +64,8 @@ function waitReturn(waitVar){
 
 function roy_render(){
 
-  stage.fill(c64.colors["black"]);
-  mycanvas.fill(c64.colors["black"]);
+  stage.fill(c64.colors.black);
+  mycanvas.fill(c64.colors.black);
 
   switch(roy_part){
 

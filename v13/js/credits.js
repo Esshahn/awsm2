@@ -4,144 +4,121 @@ function credits_init()
   mycanvas160.clear();
   mycanvas.clear();
 
-
-  credits_underwater_canvas = new canvas(320,185);
   credits_gradient = new image("gfx/credits_gradient.gif");
   credits_bubble1 = new image("gfx/credits_bubble1.gif");
   credits_bubble2 = new image("gfx/credits_bubble2.gif");
   credits_bubble3 = new image("gfx/credits_bubble3.gif");
-  credits_bubble4 = new image("gfx/credits_bubble4.gif");
+  //credits_bubble4 = new image("gfx/credits_bubble4.gif");
   credits_font = new image("gfx/font_wiki.gif");
   credits_font.initTile(8,16,32);
 
-
-  credits_scroller_canvas = new canvas (300,200);
+  credits_scroller_canvas = new canvas (320,200);
 
   playSong('sid/Arctic_Circles.sid',0);
 
-  credits_underwater_y=-170;
+  sinusScrolltext =  "$              THE END";
 
-  sinusScrolltext =  "           THE END";
+  sinusScrolltext += "$$$$$";
+  sinusScrolltext += "$    My god, it's full of sinus! ";
+  sinusScrolltext += "$$$  A 'C64 Javascript demo' by AWSM";
+  sinusScrolltext += "$         released in 2015";
 
-  sinusScrolltext += "$$$$ 'My god, it's full of sinus!'";
-  sinusScrolltext += "$      A C64 demo by AWSM";
-  sinusScrolltext += "$       created in 2014";
+  sinusScrolltext += "$$       I hope you liked it.";
 
-  sinusScrolltext += "$$     I hope you liked it.";
+  sinusScrolltext += "$$$$$Making this demo was an amazing";
+  sinusScrolltext += "$experience. I revisited many great";
+  sinusScrolltext += "$C64 prods again, some of them";
+  sinusScrolltext += "$nothing less than legendary.";
 
-  sinusScrolltext += "$$$$$Making this demo was";
-  sinusScrolltext += "$an amazing experience.";
-  sinusScrolltext += "$I revisited many great";
-  sinusScrolltext += "$C64 productions again, some";
-  sinusScrolltext += "$of them nothing less than";
-  sinusScrolltext += "$legendary.";
+  sinusScrolltext += "$$$I want to thank all those coders";
+  sinusScrolltext += "$artists and musicians that brought";
+  sinusScrolltext += "$me so many great memories and still";
+  sinusScrolltext += "$amaze me with their creativity today.";
 
-  sinusScrolltext += "$$$Before going into the credits";
-  sinusScrolltext += "$and some more info about this";
-  sinusScrolltext += "$demo, I want to thank all those";
-  sinusScrolltext += "$coders, artists and musicians";
-  sinusScrolltext += "$that brought me so many great";
-  sinusScrolltext += "$memories and still amaze me";
-  sinusScrolltext += "$with their creativity today.";
-  sinusScrolltext += "$$         THANK YOU.";
+  sinusScrolltext += "$$          THANK YOU.";
 
-  sinusScrolltext += "$$$       THE GREETINGS:";
-  sinusScrolltext += "$$ AIRO";
-  sinusScrolltext += "$$         AYOROS";
-  sinusScrolltext += "$$    DANE";
-  sinusScrolltext += "$$                GANDALF";
-  sinusScrolltext += "$$   JARI VUOKSENRANTA";
-  sinusScrolltext += "$$  LINUS";
-  sinusScrolltext += "$$          MELLOW MAN";
-  sinusScrolltext += "$$NEW CORE";
-  sinusScrolltext += "$$                NONAMENO";
-  sinusScrolltext += "$$            SOLO";
-  sinusScrolltext += "$$    SUBZERO";
-  sinusScrolltext += "$$             TINY'R'SID";
-  sinusScrolltext += "$$ TOTORMAN";
-  sinusScrolltext += "$$     AND ALL CODEF DEVS";
+  sinusScrolltext += "$$$$  --== THE GREETINGS ==--";
+  sinusScrolltext += "$$AIRO - AYOROS - DANE - GANDALF";
+  sinusScrolltext += "$JARI VUOKSENRANTA - LINUS";
+  sinusScrolltext += "$MELLOW MAN - NEW CORE - NONAMENO";
+  sinusScrolltext += "$SOLO - SUBZERO - TINY'R'SID";
+  sinusScrolltext += "$TOTORMAN - AND ALL CODEF DEVS";
 
-  sinusScrolltext += "$$$$C64 LOADER";
-  sinusScrolltext += "$Code & graphics: AWSM";
-  sinusScrolltext += "$$I ended up building a small";
-  sinusScrolltext += "$lib for C64 effects, including";
-  sinusScrolltext += "$the right colors, hires- and";
-  sinusScrolltext += "$multicolor screen modes,";
+  sinusScrolltext += "$$$$   --== THE CREDITS ==--";
+  sinusScrolltext += "$$AWSM is actually just me, so most";
+  sinusScrolltext += "$of the code and graphics are done";
+  sinusScrolltext += "$by only me, unless stated below:";
+
+  sinusScrolltext += "$$$$   --== C64 LOADER ==--";
+  sinusScrolltext += "$$I ended up building a small lib";
+  sinusScrolltext += "$for C64 effects, including colors,";
+  sinusScrolltext += "$hires- and multicolor modes,";
   sinusScrolltext += "$rasterbars and other stuff.";
-  sinusScrolltext += "$The program loaded in the";
-  sinusScrolltext += "$beginning changes randomly";
-  sinusScrolltext += "$at start. Give it another try!";
 
-  sinusScrolltext += "$$$THE EAGLESOFT RIPOFF";
-  sinusScrolltext += "$Original: EAGLESOFT INC.";
-  sinusScrolltext += "$Music:";
-  sinusScrolltext += "$Code & graphics: AWSM";
-  sinusScrolltext += "$$Just a quick graphic to kick";
-  sinusScrolltext += "$things off. My initial idea";
-  sinusScrolltext += "$for the demo was to have many";
-  sinusScrolltext += "$screens that fake iconic";
-  sinusScrolltext += "$cracktros, but in a ironic";
-  sinusScrolltext += "$and probably lame way.";
-  sinusScrolltext += "$The demo was supposed to be";
+  sinusScrolltext += "$$$$  --== THE E.S.I. RIPOFF ==--";
+  sinusScrolltext += "$$Original: EAGLESOFT INC.";
+  sinusScrolltext += "$Music: Ben Daglish";
+  sinusScrolltext += "$$Just a quick screen to kick things";
+  sinusScrolltext += "$off. My initial idea for the demo";
+  sinusScrolltext += "$was to have many screens that";
+  sinusScrolltext += "$fake iconic cracktros, but in a";
+  sinusScrolltext += "$ironic and probably very lame way.";
+  sinusScrolltext += "$$The demo was supposed to be";
   sinusScrolltext += "$named 'The edge of disgust'.";
-  sinusScrolltext += "$Well, I lost track of that";
-  sinusScrolltext += "$goal and ended up somewhere";
-  sinusScrolltext += "$else instead.";
+  sinusScrolltext += "$Well, I lost track of that goal and";
+  sinusScrolltext += "$ended up somewhere else instead.";
 
-  sinusScrolltext += "$$$THE URIDIUM SCREEN";
-  sinusScrolltext += "$Code & graphics: AWSM";
-  sinusScrolltext += "$Music: M. Wilson & D. Haynes";
-  sinusScrolltext += "$$A classic starfield cracktro";
-  sinusScrolltext += "$with a cool tune from";
-  sinusScrolltext += "$Cool Croc Twins.";
+  sinusScrolltext += "$$$$ --== FULL OF SINUS ==--";
+  sinusScrolltext += "$$Music: Sasha Stojanovic (Dalton)";
+  sinusScrolltext += "$$The idea of a floppy disk as a";
+  sinusScrolltext += "$monolith on the moon fascinated me";
+  sinusScrolltext += "$so I made this screen.";
 
-  sinusScrolltext += "$$$THE AWSM9001 PLASMA";
-  sinusScrolltext += "$Code & graphics: AWSM";
-  sinusScrolltext += "$Music: Sascha Zeidler (Linus)";
-  sinusScrolltext += "$$Original javascript plasma";
-  sinusScrolltext += "$code by Kevin Roast.";
-  sinusScrolltext += "$Special thanks to";
-  sinusScrolltext += "$Sascha Zeidler (Linus)";
+  sinusScrolltext += "$$$$ --== URIDIUM SCREEN ==--";
+  sinusScrolltext += "$$Music: M. Wilson & D. Haynes";
+  sinusScrolltext += "$$A classic starfield cracktro with a";
+  sinusScrolltext += "$funky tune from Cool Croc Twins.";
+  sinusScrolltext += "$The first screen I did for this demo.";
+
+  sinusScrolltext += "$$$$ --== 3D CHECKERBOARD ==--";
+  sinusScrolltext += "$$Music: Stellan Andersson (Dane)";
+  sinusScrolltext += "$$The code for the checkerboard is";
+  sinusScrolltext += "$based on a CODEF demo by Drskull.";
+
+  sinusScrolltext += "$$$$--== AWSM9001 PLASMA ==--";
+  sinusScrolltext += "$$Music: Sascha Zeidler (Linus)";
+  sinusScrolltext += "$Original plasma: Kevin Roast";
+  sinusScrolltext += "$$Special thanks to Linus";
   sinusScrolltext += "$for allowing me to use his";
   sinusScrolltext += "$excellent tune 'Locomotive Chef'.";
 
-  sinusScrolltext += "$$$AWSM9000 POSITIVE KARMA";
-  sinusScrolltext += "$Code & graphics: AWSM";
-  sinusScrolltext += "$Music: Sascha Zeidler (Linus)";
-  sinusScrolltext += "$$Again a screen featuring";
-  sinusScrolltext += "$music by Linus.";
-  sinusScrolltext += "$I liked that song so much that";
+  sinusScrolltext += "$$$$--== AWSM9000 POS. KARMA ==--";
+  sinusScrolltext += "$$Music: Linus";
+  sinusScrolltext += "$$I liked that song so much that";
   sinusScrolltext += "$I named the screen after it:";
   sinusScrolltext += "$'Positive Karma'.";
 
-  sinusScrolltext += "$$$BLADERUNNER";
-  sinusScrolltext += "$Code & graphics: AWSM";
-  sinusScrolltext += "$Music: Johan Astrand (Zyron)";
-
+  sinusScrolltext += "$$$$  --== BLADERUNNER ==--";
+  sinusScrolltext += "$$Music: Johan Astrand (Zyron)";
   sinusScrolltext += "$$A magical scene from Bladerunner.";
   sinusScrolltext += "$I had to do a C64 hommage.";
   sinusScrolltext += "$The paper unicorn at the end";
-  sinusScrolltext += "$is a very special symbol used";
-  sinusScrolltext += "$in the movie.";
-  sinusScrolltext += "$If you haven't seen it yet,";
-  sinusScrolltext += "$please do it now.";
+  sinusScrolltext += "$is a key symbol used in the movie.";
 
-  sinusScrolltext += "$$$THE CREDITS";
-  sinusScrolltext += "$Code & graphics: AWSM";
-  sinusScrolltext += "$Music: Stellan Andersson (Dane)";
-
-  sinusScrolltext += "$$Special thanks to Stellan";
-  sinusScrolltext += "$for giving me permission to use";
-  sinusScrolltext += "$his wonderful 'Artic Circles'.";
+  sinusScrolltext += "$$$$  --== THE CREDITS ==--";
+  sinusScrolltext += "$$Music: Stellan Andersson (Dane)";
+  sinusScrolltext += "$$Special thanks to Stellan for";
+  sinusScrolltext += "$giving me permission to use his";
+  sinusScrolltext += "$wonderful tune 'Artic Circles'.";
   sinusScrolltext += "$I'm a big fan of his work and the";
   sinusScrolltext += "$soundtrack for 'Edge of Disgrace'";
   sinusScrolltext += "$is among the best ever done.";
 
-  credits_init_flyscroll(sinusScrolltext);
+  sinusScrolltext += "$$$$";
 
-  credits_init_waves();
+  credits_init_flyscroll(credits_scroller_canvas,sinusScrolltext);
 
-  amount_of_bubbles = 8;
+  amount_of_bubbles = 6;
   initBubbles(amount_of_bubbles);
 }
 
@@ -154,7 +131,7 @@ function initBubbles(amount){
 
 function Bubble(){
 
-  this.bubbleImages = [credits_bubble1,credits_bubble2,credits_bubble3,credits_bubble4];
+  this.bubbleImages = [credits_bubble1,credits_bubble2,credits_bubble3];
   this.image = this.bubbleImages[Math.floor(Math.random()*this.bubbleImages.length)];
   this.y = Math.random()*100+200;
   this.x = Math.random()*320;
@@ -177,11 +154,11 @@ function Bubble(){
       this.image = this.bubbleImages[Math.floor(Math.random()*this.bubbleImages.length)];
     }
 
-  }
+  };
 
 }
 
-function credits_init_flyscroll(text)
+function credits_init_flyscroll(canvas,text)
 {
 
   flyScrollText = text;
@@ -189,115 +166,100 @@ function credits_init_flyscroll(text)
   flyScrollFontWidth = 8;
   flyScrollX = 0;
   flyScrollY = 0;
-  flyScrollStartSin = 0;
+  flyScrollStartSinX = 0;
+  flyScrollStartSinY = 0;
+  flyScrollCharCounter = 0;
 
   for (i = 0; i<flyScrollText.length;i++){
     if (flyScrollText[i]=="$"){
-      flyScrollX=0;
-      flyScrollY+=18;
-      flyScrollX = -(i+1) * flyScrollFontWidth;
-      flyScrollStartSin = 0;
+
+      flyScrollX = 20 -(i+1) * flyScrollFontWidth;
+      flyScrollY+=22;
+      flyScrollStartSinX = 0;
+      flyScrollStartSinY = 0;
+
+    }else{
+
+      flyScrollAllText[flyScrollCharCounter] = new FlyScroll (canvas,flyScrollText[i],flyScrollX+flyScrollFontWidth*i,200+flyScrollY,0.3,flyScrollStartSinX, flyScrollStartSinY,0.06);
+      flyScrollStartSinX -= 0.1;
+      flyScrollStartSinY -= 0.15;
+      flyScrollCharCounter ++;
     }
 
-    flyScrollAllText[i] = new FlyScroll (flyScrollText[i],flyScrollX+flyScrollFontWidth*i,200+flyScrollY,0.3,flyScrollStartSin,0.06);
-    flyScrollStartSin -= 0.15;
 
   }
 
 }
 
 
-function FlyScroll(text, xPos, yPos, speed, initSin, ampSin)
+function FlyScroll(canvas,text, xPos, yPos, speed, initSinX, initSinY, ampSin)
 {
 
   // moves text
 
+  this.canvas = canvas;
   this.text = text;
-  this.initSin = initSin;
+  this.initSinX = initSinX;
+  this.initSinY = initSinY;
   this.xPos = xPos;
   this.yPos = yPos;
   this.speed = speed;
   this.ampSin = ampSin;
+  this.speedMulti = Math.random(1)/50;
+  this.xPosMulti = (Math.random(1)-0.5)/2;
+  this.burstY = 40 + Math.random()*40-20;
 
-  this.draw = function(canvas)
+  this.draw = function()
   {
-
-    if (this.yPos > -50){
-      this.canvas = canvas;
+    // as long as the text isn't past the upper border, do the movement math
+    if (this.yPos > -20){
       this.yPos -= this.speed;
-      this.sinus = Math.floor(Math.sin(this.initSin)*10);
-      this.initSin += this.ampSin;
+      this.sinusX = Math.floor(Math.sin(this.initSinX)*10);
+      this.sinusY = Math.floor(Math.sin(this.initSinY)*10);
+      this.initSinX += this.ampSin/2;
+      this.initSinY += this.ampSin;
     }
 
-    if (this.yPos > -50 && this.yPos < 200){
-      credits_font.print(this.canvas,this.text,this.xPos,this.yPos+this.sinus);
+
+    if (this.yPos >-20 && this.yPos < this.burstY){
+      // if the text is high enough, increase x and speed to make it slowly break apart
+      this.speed += this.speedMulti;
+      this.xPos += this.xPosMulti;
     }
-  }
+
+    if (this.yPos > -20 && this.yPos < 200){
+      // if text is within visible area, draw it to the canvas
+      credits_font.print(this.canvas,this.text,this.xPos+this.sinusX,this.yPos+this.sinusY);
+    }
+
+  };
 }
-
-function credits_init_waves(){
-
-  var credits_waves_sin = 0;
-  allWaves = [];
-
-  for (i=0; i<200; i++){
-    credits_waves_sin+=0.6;
-    allWaves[i] = new credits_Waves(i,credits_waves_sin);
-  }
-}
-
-
-function credits_Waves(yPos,sin){
-  this.yPos = yPos;
-  this.sin = sin;
-
-  this.draw =function (canvas)
-  {
-    credits_underwater_canvas.drawPart(credits_underwater_canvas,0,this.yPos,Math.floor(Math.sin(this.sin)*5),this.yPos,320,1);
-    this.sin += 0.02;
-  }
-}
-
 
 function credits_render()
 {
 
+    // clear the canvas
     mycanvas.clear();
-    //mycanvas.fill(c64.colors.black);
     stage.fill(c64.colors.black);
-    border.quad(0,58,400,144,c64.colors.blue);
-    border.quad(0,60,400,140,c64.colors.light_blue);
-
     credits_scroller_canvas.clear();
 
-
-    for (i = 0; i<allWaves.length;i++){
-      allWaves[i].draw();
+    // draw the bubbles
+    for (i = 0; i< allBubbles.length; i++){
+      allBubbles[i].draw(credits_scroller_canvas);
     }
 
-
-  //  credits_underwater_canvas.draw(mycanvas,0,credits_underwater_y);
-
-
-      for (i = 0; i< allBubbles.length; i++){
-        allBubbles[i].draw(credits_scroller_canvas);
-      }
-
-
-    for (i = 0; i<sinusScrolltext.length;i++){
-      flyScrollAllText[i].draw(credits_scroller_canvas);
+    // draw the scrolltext to the scroller canvas
+    for (i = 0; i<flyScrollCharCounter;i++){
+      flyScrollAllText[i].draw();
     }
 
-
+    // draw the gradient ontop the scrolltext
     credits_scroller_canvas.contex.globalCompositeOperation='source-atop';
     credits_gradient.draw(credits_scroller_canvas,0,0);
     credits_scroller_canvas.contex.globalCompositeOperation='source-over';
 
     // reflection on top
-    credits_scroller_canvas.drawPart(mycanvas,40,16,0,0,320,10,1,0,1,-1);
-    credits_scroller_canvas.draw(mycanvas,40,15);
-
-
-
+    credits_scroller_canvas.drawPart(mycanvas,0,16,0,0,320,10,1,0,1,-1);
+    credits_scroller_canvas.draw(mycanvas,0,15);
 
 }
