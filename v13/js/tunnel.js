@@ -103,7 +103,10 @@ function do_3d(dest,sprite) {
       var X = Math.floor(dest.canvas.width/2+p.x-movX*cosa);
       var Y = Math.floor(dest.canvas.height/2+p.y-movY*sina2);
 
-      if ( (X>0) && (Y>0) && (X<dest.canvas.width) && (Y<dest.canvas.height)) sprite.draw(dest,X,Y,alpha,0,1,1);
+      if ( (X>0) && (Y>0) && (X<dest.canvas.width) && (Y<dest.canvas.height)) sprite.draw(dest,X,Y-20,alpha,0,1,1);
+
+    //  if ((X>0) && (Y>0) && (X<dest.canvas.width) && (Y<dest.canvas.height)) sprite.draw(dest,X,180+Y/10,alpha/3,0,1,1);
+
       k++;
     }
   }
@@ -112,10 +115,7 @@ function do_3d(dest,sprite) {
 
 function tunnel_render()
 {
-  // the lessFPSCounter does what it says. It reduces the FPS to give a retro effect
 
-border.quad(0,29,400,1,c64.colors.white);
-border.quad(0,230,400,1,c64.colors.white);
 
   lessFPSCounter ++;
   if (lessFPSCounter%3===0){
@@ -132,10 +132,11 @@ border.quad(0,230,400,1,c64.colors.white);
 
     do_3d(mycanvas_tunnel,mysprite[spri]) ;
     mycanvas_tunnel.draw(mycanvas160,0,0,tunnel_alpha) ;
+    mycanvas_tunnel.draw(mycanvas160,160,200,tunnel_alpha,180) ;
   }
 
 
 
-//  mycanvas_tunnel.draw(mycanvas160,160,200,Math.abs(Math.sin(tunnel_zDist)),180) ;
+
   colorReduce(mycanvas160);
 }
