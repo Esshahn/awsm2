@@ -186,12 +186,6 @@ function checker_render()
     my3d.group.position.y= 150+Math.floor(Math.sin(sinus_3d)*140);
     sinus_3d += 0.08;
 
-    //  my3d.group.rotation.y-=0.06;
-    //  my3d.group.rotation.z+=0.04;
-
-
-
-
     // based on z position of the 3d object, draw the object or the logo first
 
     if (my3d.group.position.z > -80){
@@ -203,8 +197,6 @@ function checker_render()
 
       checker_logo.draw(mycanvas160,36,15);
     }
-
-
 
   }
 
@@ -223,8 +215,6 @@ function checker_render()
   // draw the scroller
 
   checker_scroller.draw(182);
-
-
 
   // map all wrong colors to the c64 palette on the fly
 
