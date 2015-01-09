@@ -4,9 +4,11 @@ function tunnel_init()
 
   logo_awsm_tunnel = new image("gfx/logo_awsm_tunnel.gif");
 
-  mycanvas_tunnel = new canvas(140, 200) ;
+  mycanvas_tunnel = new canvas(140, 180) ;
 
   lessFPSCounter = 0;
+
+  should_i_fuckup = 0;
 
   movX = 40 ;
   movY = 40 ;
@@ -29,7 +31,6 @@ function tunnel_init()
   spri = 0 ;
 
   tunnel_zDist = 0;
-  displaymode = 1;
 
   a=0 ;
 
@@ -54,6 +55,7 @@ function tunnel_init()
 
   tunnel_checker_canvas = new canvas (20,200);
   tunnel_checker = new Tunnel_checker(c64.colors.dark_grey,c64.colors.black,12,24,-0.2,0.4);
+
 }
 
 
@@ -139,6 +141,56 @@ function Tunnel_checker(color1,color2,xtilesize,ytilesize,xspeed,yspeed){
 
 }
 
+function rasterbar_grey(){
+
+  // yeah i know. horrible. but somehow i feel like cheating using gifs for that. ;)
+  border.fill(c64.colors.light_grey);
+  border.quad(0,14,400,1,c64.colors.grey);
+  border.quad(0,16,400,1,c64.colors.grey);
+  border.quad(0,18,400,1,c64.colors.grey);
+  border.quad(0,241,400,1,c64.colors.grey);
+  border.quad(0,243,400,1,c64.colors.grey);
+  border.quad(0,245,400,1,c64.colors.grey);
+  border.quad(0,20,400,220,c64.colors.grey);
+  border.quad(0,24,400,1,c64.colors.dark_grey);
+  border.quad(0,26,400,1,c64.colors.dark_grey);
+  border.quad(0,28,400,1,c64.colors.dark_grey);
+
+  mycanvas160.quad(0,0,160,4,c64.colors.dark_grey);
+  mycanvas160.quad(0,196,160,4,c64.colors.dark_grey);
+  mycanvas160.quad(0,5,160,1,c64.colors.dark_grey);
+  mycanvas160.quad(0,7,160,1,c64.colors.dark_grey);
+  mycanvas160.quad(0,9,160,1,c64.colors.dark_grey);
+
+  mycanvas160.quad(0,190,160,1,c64.colors.dark_grey);
+  mycanvas160.quad(0,192,160,1,c64.colors.dark_grey);
+  mycanvas160.quad(0,194,160,1,c64.colors.dark_grey);
+
+  border.quad(0,231,400,1,c64.colors.dark_grey);
+  border.quad(0,233,400,1,c64.colors.dark_grey);
+  border.quad(0,235,400,1,c64.colors.dark_grey);
+  border.quad(0,30,400,200,c64.colors.dark_grey);
+  border.quad(0,34,400,1,c64.colors.black);
+  border.quad(0,36,400,1,c64.colors.black);
+  border.quad(0,38,400,1,c64.colors.black);
+  border.quad(0,221,400,1,c64.colors.black);
+  border.quad(0,223,400,1,c64.colors.black);
+  border.quad(0,225,400,1,c64.colors.black);
+  border.quad(0,40,400,180,c64.colors.black);
+
+}
+
+function fucked_up_rasterbar_timing_damnit(){
+  // this is the cheeze
+
+  should_i_fuckup ++;
+  if (should_i_fuckup%20 === 0){
+    fucked_uo_rasterbar_timing_even_worse_oh_my_god = Math.floor(Math.random()*400);
+    fucked_uo_rasterbar_timing_even_worse_oh_my_god2 = Math.floor(Math.random()*400);  border.drawPart(border,fucked_uo_rasterbar_timing_even_worse_oh_my_god2,1,0,0,fucked_uo_rasterbar_timing_even_worse_oh_my_god,300);
+  }
+
+}
+
 
 function tunnel_render()
 {
@@ -147,6 +199,12 @@ function tunnel_render()
   if (lessFPSCounter%3===0){
     mycanvas160.fill(c64.colors.black);
     mycanvas_tunnel.clear();
+
+    // draw the rasterbars
+
+    rasterbar_grey();
+
+    // draw the tunnel
 
     eye.z=Math.sin(tunnel_zDist)*100-100;
     tunnel_zDist+= 0.02;
@@ -159,63 +217,42 @@ function tunnel_render()
       spri = spri % mysprite.length ;
     }
 
-    if (vbl%100===0) {
-      displaymode ++;
-    }
+    do_3d(mycanvas_tunnel,mysprite[spri],5) ;
+    mycanvas_tunnel.draw(mycanvas160,20,10,tunnel_alpha) ;
 
+    // draw the checker to the checker canvas
 
+    tunnel_checker.draw(tunnel_checker_canvas);
 
-    switch(displaymode){
+    // draw the colored roundness of the cylinder
 
-      case 1:
-                do_3d(mycanvas_tunnel,mysprite[spri],5) ;
-                mycanvas_tunnel.draw(mycanvas160,20,0,tunnel_alpha) ;
-                break;
-      case 2:
-                do_3d(mycanvas_tunnel,mysprite[spri],10) ;
-                mycanvas_tunnel.draw(mycanvas160,20,0,tunnel_alpha) ;
-                break;
-      case 3:
-                tunnel_zDist += 0.02;
-                a+= 0.03;
-                do_3d(mycanvas_tunnel,mysprite[spri],40) ;
-                mycanvas_tunnel.draw(mycanvas160,20,0,tunnel_alpha) ;
-                break;
-      case 4:
-                do_3d(mycanvas_tunnel,mysprite[spri],5) ;
-                mycanvas_tunnel.draw(mycanvas160,20,0,tunnel_alpha) ;
-                mycanvas_tunnel.draw(mycanvas160,180,200,tunnel_alpha,180) ;
-                break;
-      case 5:
-                displaymode = 1;
-    }
+    tunnel_checker_canvas.contex.globalCompositeOperation='lighter';
+    tunnel_checker_canvas.quad(2,0,16,200,c64.colors.grey);
+    tunnel_checker_canvas.quad(5,0,10,200,c64.colors.dark_grey);
+    tunnel_checker_canvas.contex.globalCompositeOperation='source-over';
+
+    // draw black "curves" that make the cylinder top and bottom rounded
+
+    tunnel_checker_canvas.quad(0,0,2,2,c64.colors.dark_grey);
+    tunnel_checker_canvas.quad(0,0,5,1,c64.colors.dark_grey);
+    tunnel_checker_canvas.quad(15,0,3,1,c64.colors.dark_grey);
+    tunnel_checker_canvas.quad(18,0,2,2,c64.colors.dark_grey);
+    tunnel_checker_canvas.quad(0,198,2,2,c64.colors.dark_grey);
+    tunnel_checker_canvas.quad(0,199,5,1,c64.colors.dark_grey);
+    tunnel_checker_canvas.quad(15,199,3,1,c64.colors.dark_grey);
+    tunnel_checker_canvas.quad(18,198,2,2,c64.colors.dark_grey);
+
+    // draw the finished checker cylinder to the canvas
+
+    tunnel_checker_canvas.draw(mycanvas160,5,0);
+
+    // add the logo
+
+    logo_awsm_tunnel.draw(mycanvas160,0,15);
 
   }
+    // fake raster sync problem
 
-  tunnel_checker.draw(tunnel_checker_canvas);
-
-
-  // draw the colored roundness of the cylinder
-
-  tunnel_checker_canvas.contex.globalCompositeOperation='lighter';
-  tunnel_checker_canvas.quad(2,0,16,200,c64.colors.grey);
-  tunnel_checker_canvas.quad(5,0,10,200,c64.colors.dark_grey);
-  tunnel_checker_canvas.contex.globalCompositeOperation='source-over';
-
-  // draw black "curves" that make the cylinder top and bottom rounded
-
-  tunnel_checker_canvas.quad(0,0,2,2,c64.colors.black);
-  tunnel_checker_canvas.quad(0,0,5,1,c64.colors.black);
-  tunnel_checker_canvas.quad(15,0,3,1,c64.colors.black);
-  tunnel_checker_canvas.quad(18,0,2,2,c64.colors.black);
-
-  tunnel_checker_canvas.quad(0,198,2,2,c64.colors.black);
-  tunnel_checker_canvas.quad(0,199,5,1,c64.colors.black);
-  tunnel_checker_canvas.quad(15,199,3,1,c64.colors.black);
-  tunnel_checker_canvas.quad(18,198,2,2,c64.colors.black);
-
-  tunnel_checker_canvas.draw(mycanvas160,5,0);
-
-  logo_awsm_tunnel.draw(mycanvas160,0,20);
-  colorReduce(mycanvas160);
+    fucked_up_rasterbar_timing_damnit();
+    colorReduce(mycanvas160);
 }
