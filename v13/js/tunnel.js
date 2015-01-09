@@ -141,7 +141,7 @@ function Tunnel_checker(color1,color2,xtilesize,ytilesize,xspeed,yspeed){
 
 }
 
-function rasterbar_grey(){
+function tunnel_rasterbar_grey(){
 
   // yeah i know. horrible. but somehow i feel like cheating using gifs for that. ;)
   border.fill(c64.colors.light_grey);
@@ -202,7 +202,7 @@ function tunnel_render()
 
     // draw the rasterbars
 
-    rasterbar_grey();
+    tunnel_rasterbar_grey();
 
     // draw the tunnel
 
