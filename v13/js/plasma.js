@@ -56,6 +56,8 @@ function plasma_init(){
       -plasma_balls_sinStep*6-10);
     plasma_ball_1 = new Plasma_Ball(plasma_ballz_1,plasma_balls_startPosition+plasma_balls_spacing*7,
       -plasma_balls_sinStep*7-10);
+
+
 }
 
 function Plasma(canvas){

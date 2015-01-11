@@ -76,7 +76,7 @@ function checkKeyPressed(e){
 
   if (keyCode == 80){
 
-    if (playPart == 0){
+    if (playPart === 0){
        playPart = tempPlayPart;
     }else{
       tempPlayPart = playPart;
@@ -175,13 +175,20 @@ function render(){
             tunnel_render();
             break;
     case 19:
-            roy_init();
+            planier_init();
             callNextPart();
             break;
     case 20:
-            roy_render();
+            planier_render();
             break;
     case 21:
+            roy_init();
+            callNextPart();
+            break;
+    case 22:
+            roy_render();
+            break;
+    case 23:
             credits_init();
             callNextPart();
             break;

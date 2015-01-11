@@ -13,6 +13,7 @@ function star_init()
 
   star_pinup_01 = new image ("gfx/pinup_01.gif");
 
+
 }
 
 

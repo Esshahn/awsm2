@@ -21,6 +21,7 @@ function eaglesoft_init(){
   stage.fill("#000000");
 
   if (demoIsLive) playSong('sid/Future_Knight.sid',0);
+
 }
 
 

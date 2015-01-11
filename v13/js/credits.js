@@ -120,6 +120,7 @@ function credits_init()
 
   amount_of_bubbles = 6;
   initBubbles(amount_of_bubbles);
+
 }
 
 function initBubbles(amount){

@@ -18,8 +18,8 @@ function fullofsinus_init()
   tiles = new Tiles(mycanvas160,40,20,0.9,"#000000");
 
   if (demoIsLive) playSong('sid/Odisey_2001_AD.sid',0);
-  //playSong('sid/Odisey_2001_AD.sid',0);
   border.fill("#000000");
+
 }
 
 

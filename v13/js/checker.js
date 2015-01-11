@@ -20,7 +20,7 @@ function checker_init(){
   tile_w = 256;
   tile_h = 256;
 
-  angle = new Array();
+  angle = [];
 
   z=0;
   rand=0;
@@ -101,9 +101,7 @@ function checker_init(){
 
   // end scroller
 
-
 }
-
 
 
 function mode7(angle, cx, cy, space_z, horizon )
@@ -144,7 +142,6 @@ for (screen_y=0; screen_y < canvas_h; screen_y++)
 
         space_x += line_dx;
         space_y += line_dy;
-
       }
   }
 }
@@ -153,10 +150,8 @@ for (screen_y=0; screen_y < canvas_h; screen_y++)
 function checker_render()
 {
 
-
   rand+=0.002;
   z++;
-  //border.fill(c64.colors.brown);
   lessFPSCounter ++;
   if (lessFPSCounter >= 3){
 
@@ -165,7 +160,6 @@ function checker_render()
     lessFPSCounter = 0;
 
     mycanvas160.fill(c64.colors.black);
-
 
     // draw the checkerboard
 

@@ -2,7 +2,7 @@ function tunnel_init()
 {
   stage.fill(c64.colors.black);
 
-  logo_awsm_tunnel = new image("gfx/logo_awsm_tunnel.gif");
+  logo_awsm_tunnel = new image("gfx/logo_awsm_tunnel4.gif");
 
   mycanvas_tunnel = new canvas(140, 180) ;
 
@@ -54,7 +54,7 @@ function tunnel_init()
   mysprite[3] = generateDot(c64.colors.light_blue) ;
 
   tunnel_checker_canvas = new canvas (20,200);
-  tunnel_checker = new Tunnel_checker(c64.colors.dark_grey,c64.colors.black,12,24,-0.2,0.4);
+  tunnel_checker = new Tunnel_checker(c64.colors.dark_grey,c64.colors.black,12,24,-0.6,1.2);
 
 }
 
@@ -184,7 +184,7 @@ function fucked_up_rasterbar_timing_damnit(){
   // this is the cheeze
 
   should_i_fuckup ++;
-  if (should_i_fuckup%20 === 0){
+  if (should_i_fuckup%10 === 0){
     fucked_uo_rasterbar_timing_even_worse_oh_my_god = Math.floor(Math.random()*400);
     fucked_uo_rasterbar_timing_even_worse_oh_my_god2 = Math.floor(Math.random()*400);  border.drawPart(border,fucked_uo_rasterbar_timing_even_worse_oh_my_god2,1,0,0,fucked_uo_rasterbar_timing_even_worse_oh_my_god,300);
   }

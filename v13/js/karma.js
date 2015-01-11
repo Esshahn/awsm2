@@ -18,6 +18,7 @@ function karma_init()
   awsm9000_sinus = 0;
 
   playSong('sid/Positive_Karma.sid',1);
+
 }
 
 function Zoombar(){

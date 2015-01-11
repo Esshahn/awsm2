@@ -20,6 +20,7 @@ function roy_init(){
   shutter2 = new Shutter(mycanvas,8,0.15,"#000000");
   shutter3 = new Shutter(mycanvas,8,0.20,"#000000");
   roy_part = 1;
+
 }
 
 

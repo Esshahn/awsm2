@@ -27,6 +27,7 @@ function uridium_init(){
 
   uridium_starfield = new Starfield(mycanvas,100,2,1,1,0,1,5,[c64.colors.white,c64.colors.dark_grey,c64.colors.grey,c64.colors.light_grey]);
 
+
 }
 
 
