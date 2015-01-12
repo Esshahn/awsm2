@@ -30,12 +30,24 @@ function credits_init()
   sinusScrolltext += "$C64 prods again, some of them";
   sinusScrolltext += "$nothing less than legendary.";
 
+  sinusScrolltext += "$$$This demo is intended as a";
+  sinusScrolltext += "$hommage to those pieces of art.";
+  sinusScrolltext += "$$$I tried to stay within the C64's";
+  sinusScrolltext += "$limitations (colors, resolution)";
+  sinusScrolltext += "$as close as possible.";
+  sinusScrolltext += "$However, any demo coder will spot";
+  sinusScrolltext += "$a lot that is impossible on a C64";
+  sinusScrolltext += "$while being incredibly easy on a";
+  sinusScrolltext += "$modern computer.";
+  sinusScrolltext += "$$I hope no real scener got offended";
+  sinusScrolltext += "$by my work.";
+
   sinusScrolltext += "$$$I want to thank all those coders";
   sinusScrolltext += "$artists and musicians that brought";
   sinusScrolltext += "$me so many great memories and still";
   sinusScrolltext += "$amaze me with their creativity today.";
 
-  sinusScrolltext += "$$          THANK YOU.";
+  sinusScrolltext += "$$            THANK YOU.";
 
   sinusScrolltext += "$$$$  --== THE GREETINGS ==--";
   sinusScrolltext += "$$AIRO - AYOROS - DANE - GANDALF";
@@ -97,6 +109,19 @@ function credits_init()
   sinusScrolltext += "$$I liked that song so much that";
   sinusScrolltext += "$I named the screen after it:";
   sinusScrolltext += "$'Positive Karma'.";
+
+  sinusScrolltext += "$$$$--== WORM/TUNNEL ==--";
+  sinusScrolltext += "$$Music: ";
+  sinusScrolltext += "$$Original tunnel code taken from";
+  sinusScrolltext += "$a CODEF demo by Totorman.";
+  sinusScrolltext += "$$You may have noticed that the";
+  sinusScrolltext += "$timing isn't exactly in sync so";
+  sinusScrolltext += "$the rasterbars are flickering...";
+
+  sinusScrolltext += "$$$$--== PLANIERRAUPE ==--";
+  sinusScrolltext += "$$Music: ";
+  sinusScrolltext += "$$";
+
 
   sinusScrolltext += "$$$$  --== BLADERUNNER ==--";
   sinusScrolltext += "$$Music: Johan Astrand (Zyron)";

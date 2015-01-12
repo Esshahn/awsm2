@@ -58,13 +58,11 @@ function Planier_checker(color1,color2,xtilesize,ytilesize,yspeed){
 function planier_render()
 {
 
-
   lessFPSCounter ++;
   if (lessFPSCounter%3===0){
     mycanvas160.fill(c64.colors.light_red);
     border.quad(30,0,320,30,c64.colors.light_red);
     border.quad(30,200,320,120,c64.colors.light_red);
-
 
     // draw the checker to the checker canvas
 

@@ -65,17 +65,30 @@ function checkKeyPressed(e){
   var keyCode = e.keyCode;
 
   if (keyCode == 32){
+    // space key
     e.preventDefault(); // block scrolling behaviour of browsers for pressing 'space'
-    callNextPart();
+
+    // the code below simulates some waiting time between the parts
+    // to make it look more like a c64. If stuff comes too fast the
+    // illusion of sitting in front of the 64 is easily destroyed.
+    tempPlayPart = playPart;
+    playPart = 0;
+    stage.fill(c64.colors.black);
+    mycanvas.fill(c64.colors.black);
+    mycanvas160.fill(c64.colors.black);
+    border.fill(c64.colors.black);
+    playSong('sid/empty.sid',0);
+    window.setTimeout(callNextPartKeyPress,Math.random()*3000+1000);
   }
 
   if (keyCode == 70){
+    // f key
     e.preventDefault(); // block behaviour of browsers for pressing 'f'
     fullscr('main');
   }
 
   if (keyCode == 80){
-
+    // p key
     if (playPart === 0){
        playPart = tempPlayPart;
     }else{
@@ -83,6 +96,13 @@ function checkKeyPressed(e){
       playPart = 0;
     }
   }
+}
+
+function callNextPartKeyPress(){
+  // after the window timeout, the right part to play needs to be restored
+  // before we can move on. This only gets called from they keypress event.
+  playPart = tempPlayPart;
+  callNextPart();
 }
 
 function callNextPart(){
@@ -124,7 +144,8 @@ function render(){
             callNextPart();
             break;
 
-    case 5: decrunch.draw();
+    case 5:
+            decrunch.draw();
             break;
 
     case 6:
@@ -192,7 +213,7 @@ function render(){
             credits_init();
             callNextPart();
             break;
-    case 22:
+    case 24:
             credits_render();
             break;
 
@@ -204,6 +225,11 @@ function render(){
   mycanvas.draw(stage,60,60,1,0,2,2);
   mycanvas160.draw(stage,60,60,1,0,4,2);
 
+  /*
+  stage.contex.globalCompositeOperation='darker';
+  mycanvas160.draw(stage,62,62,0.5,0,4,2);
+  stage.contex.globalCompositeOperation='source-over';
+  */
 
   // only show the scanlines whenn in live mode and not in fullscreen
   if (demoIsLive &&
@@ -213,8 +239,6 @@ function render(){
     document.msFullscreenElement)) {
     c64.showScanlines();
   }
-
-
 
   requestAnimFrame(render);
 }

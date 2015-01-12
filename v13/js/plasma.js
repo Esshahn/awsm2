@@ -339,7 +339,7 @@ function plasma_waitReturn(waitVar){
 function plasma_rasterbars(boxcolor,linecolor){
 
   border.quad(30,0,320,30,c64.colors[boxcolor]);
-  border.quad(30,230,320,30,c64.colors[boxcolor]);
+  border.quad(30,230,320,100,c64.colors[boxcolor]);
 
   border.contex.globalCompositeOperation='source-atop';
   plasma_ball_a.draw(border);
