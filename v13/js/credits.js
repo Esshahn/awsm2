@@ -110,7 +110,7 @@ function credits_init()
   sinusScrolltext += "$I named the screen after it:";
   sinusScrolltext += "$'Positive Karma'.";
 
-  sinusScrolltext += "$$$$--== WORM/TUNNEL ==--";
+  sinusScrolltext += "$$$$ --== WORM/TUNNEL ==--";
   sinusScrolltext += "$$Music: ";
   sinusScrolltext += "$$Original tunnel code taken from";
   sinusScrolltext += "$a CODEF demo by Totorman.";
@@ -118,7 +118,7 @@ function credits_init()
   sinusScrolltext += "$timing isn't exactly in sync so";
   sinusScrolltext += "$the rasterbars are flickering...";
 
-  sinusScrolltext += "$$$$--== PLANIERRAUPE ==--";
+  sinusScrolltext += "$$$$ --== PLANIERRAUPE ==--";
   sinusScrolltext += "$$Music: ";
   sinusScrolltext += "$$";
 
@@ -130,11 +130,11 @@ function credits_init()
   sinusScrolltext += "$The paper unicorn at the end";
   sinusScrolltext += "$is a key symbol used in the movie.";
 
-  sinusScrolltext += "$$$$  --== THE CREDITS ==--";
+  sinusScrolltext += "$$$$  --== THESE CREDITS ==--";
   sinusScrolltext += "$$Music: Stellan Andersson (Dane)";
   sinusScrolltext += "$$Special thanks to Stellan for";
   sinusScrolltext += "$giving me permission to use his";
-  sinusScrolltext += "$wonderful tune 'Artic Circles'.";
+  sinusScrolltext += "$wonderful tune 'Arctic Circles'.";
   sinusScrolltext += "$I'm a big fan of his work and the";
   sinusScrolltext += "$soundtrack for 'Edge of Disgrace'";
   sinusScrolltext += "$is among the best ever done.";

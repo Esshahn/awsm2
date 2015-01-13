@@ -140,7 +140,6 @@ function render(){
             break;
 
     case 4:
-            playSong('sid/empty.sid',0);
             callNextPart();
             break;
 
