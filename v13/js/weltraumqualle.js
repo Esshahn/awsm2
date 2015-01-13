@@ -5,13 +5,20 @@ function tunnel_init()
 
   weltraumqualle_outline = new image("gfx/weltraumqualle_outline.gif");
   weltraumqualle_inline = new image("gfx/weltraumqualle_inline.gif");
-  tunnel_starfield = new Starfield(mycanvas160,50,1,1,0,0,0.1,0.3,[c64.colors.brown,c64.colors.blue,c64.colors.dark_grey,c64.colors.grey,c64.colors.light_grey]);
-
+  weltraumqualle_awsm = new image("gfx/weltraumqualle_awsm.gif");
 
   mycanvas_tunnel = new canvas(160, 200) ;
 
-  lessFPSCounter = 0;
+  tunnel_font_canvas = new canvas (160,5);
+  tunnel_font = new image('gfx/font_awsm_5x5.gif');
+  tunnel_font.initTile(5,6,33);
+  tunnel_scroller = new scrolltext_horizontal();
+  tunnel_scroller.scrtxt="######################################## DIE WELTRAUMQUALLE BAHNT SICH IHREN WEG DURCH DIE GALAXIEN     DURCHSTREIFT SCHEINBAR MUEHELOS DOCH MIT ALLE ZEITEN UEBERDAUERNDER ENTSCHLOSSENHEIT SONNENSYSTEME GLEICH DEN IRDISCHEN SEEN ZWISCHEN DEN ENDLOSEN MEEREN     GETRIEBEN VON DEM EINEN WUNSCH WELCHER DER URSPRUNG ALLEN WESENS IM UNIVERSUM IST      EINMAL SCHOEN SCHEISSEN GEHEN UND DABEI TOP WLAN HABEN ########################";
+  tunnel_scroller.init(tunnel_font_canvas,tunnel_font,1);
 
+
+
+  lessFPSCounter = 0;
 
   movX = 40 ;
   movY = 40 ;
@@ -60,8 +67,8 @@ function tunnel_init()
 
 
 function generateDot(color) {
-  var cvs = new canvas(2,2);
-  cvs.quad(0,0,1,1,color) ;
+  var cvs = new canvas(1,2);
+  cvs.quad(0,0,1,2,color) ;
   return cvs;
 }
 
@@ -109,7 +116,7 @@ function tunnel_render()
   if (lessFPSCounter%3===0){
     mycanvas160.fill(c64.colors.black);
     mycanvas_tunnel.clear();
-    tunnel_starfield.draw(mycanvas160);
+    tunnel_font_canvas.clear();
 
     // draw the tunnel
 
@@ -127,11 +134,14 @@ function tunnel_render()
     do_3d(mycanvas_tunnel,mysprite[spri],5) ;
     mycanvas_tunnel.draw(mycanvas160,0,0,tunnel_alpha) ;
 
+    weltraumqualle_awsm.draw(mycanvas160,39,138);
     mycanvas160.contex.globalCompositeOperation='lighter';
-    weltraumqualle_inline.draw(mycanvas160,80,80);
+    weltraumqualle_inline.draw(mycanvas160,89,80);
     mycanvas160.contex.globalCompositeOperation='source-over';
-    weltraumqualle_outline.draw(mycanvas160,80,80);
+    weltraumqualle_outline.draw(mycanvas160,89,80);
 
+    tunnel_scroller.draw(0);
+    tunnel_font_canvas.draw(mycanvas160,39,166);
   }
 
     colorReduce(mycanvas160);

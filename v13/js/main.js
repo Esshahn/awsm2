@@ -117,8 +117,8 @@ function render(){
 
   /*
   Main demo loop. Usually there are different parts with functions named after the JS file.
-  init funcs are run only once, so playPart++ can be called right after calling the init.
-  loop funcs are running in loops, so the playPart++ runs from within the demo part when needed.
+  init funcs are run only once, so callNextPart can be called right after calling the init.
+  loop funcs are running in loops, so the callNextPart runs from within the demo part when needed.
   */
 
   //console.log("Playing part: " + playPart);
