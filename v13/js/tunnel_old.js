@@ -250,6 +250,8 @@ function tunnel_render()
 
     logo_awsm_tunnel.draw(mycanvas160,0,15);
 
+
+
   }
     // fake raster sync problem
 

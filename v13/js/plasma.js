@@ -33,7 +33,7 @@ function plasma_init(){
     // init the animation loop
     g_framestart = Date.now();
 
-    playSong('sid/Locomotive_Chef.sid',0);
+    if (demoIsLive) playSong('sid/Locomotive_Chef.sid',0);
 
     plasma_part = 1;
 
