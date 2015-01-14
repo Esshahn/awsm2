@@ -110,18 +110,19 @@ function credits_init()
   sinusScrolltext += "$I named the screen after it:";
   sinusScrolltext += "$'Positive Karma'.";
 
-  sinusScrolltext += "$$$$ --== WORM/TUNNEL ==--";
+  sinusScrolltext += "$$$$ --== WELTRAUMQUALLE ==--";
   sinusScrolltext += "$$Music: ";
   sinusScrolltext += "$$Original tunnel code taken from";
   sinusScrolltext += "$a CODEF demo by Totorman.";
-  sinusScrolltext += "$$You may have noticed that the";
-  sinusScrolltext += "$timing isn't exactly in sync so";
-  sinusScrolltext += "$the rasterbars are flickering...";
+  sinusScrolltext += "$$Weltraumqualle is german for";
+  sinusScrolltext += "$jellyfish in space. This screen";
+  sinusScrolltext += "$got changed so often that I";
+  sinusScrolltext += "$could make a demo as big as this";
+  sinusScrolltext += "$with all these versions.";
 
   sinusScrolltext += "$$$$ --== PLANIERRAUPE ==--";
   sinusScrolltext += "$$Music: ";
   sinusScrolltext += "$$";
-
 
   sinusScrolltext += "$$$$  --== BLADERUNNER ==--";
   sinusScrolltext += "$$Music: Johan Astrand (Zyron)";
