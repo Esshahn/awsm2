@@ -14,7 +14,7 @@ function credits_init()
 
   credits_scroller_canvas = new canvas (320,200);
 
-  playSong('sid/Arctic_Circles.sid',0);
+  if (demoIsLive) playSong('sid/Arctic_Circles.sid',0);
 
   sinusScrolltext =  "$              THE END";
 
@@ -100,13 +100,13 @@ function credits_init()
   sinusScrolltext += "$excellent tune 'Locomotive Chef'.";
 
   sinusScrolltext += "$$$$--== AWSM9000 POS. KARMA ==--";
-  sinusScrolltext += "$$Music: Linus";
+  sinusScrolltext += "$$Music: Sascha Zeidler (Linus)";
   sinusScrolltext += "$$I liked that song so much that";
   sinusScrolltext += "$I named the screen after it:";
   sinusScrolltext += "$'Positive Karma'.";
 
   sinusScrolltext += "$$$$   --== WELTRAUMQUALLE ==--";
-  sinusScrolltext += "$$Music: ";
+  sinusScrolltext += "$$Music: Hein Holt";
   sinusScrolltext += "$$Original tunnel code taken from";
   sinusScrolltext += "$a CODEF demo by Totorman.";
   sinusScrolltext += "$$Weltraumqualle is german for";
@@ -116,7 +116,7 @@ function credits_init()
   sinusScrolltext += "$with all these versions.";
 
   sinusScrolltext += "$$$$   --== CREDITS SCREEN ==--";
-  sinusScrolltext += "$$Music: ";
+  sinusScrolltext += "$$Music: Tomas Danko (Danko)";
   sinusScrolltext += "$$Just a small idea to show off";
   sinusScrolltext += "$my proportional charset scroll.";
   sinusScrolltext += "$I think it turned out fun.";

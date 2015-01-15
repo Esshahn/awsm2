@@ -7,8 +7,8 @@ var actualSubsong;
 var songName;
 var songAuthor;
 var songReleased;
-
 var sourceBuffer;
+
 
 function tinyRSID_loadData(arrayBuffer) {
   if (arrayBuffer) {

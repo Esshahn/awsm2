@@ -166,39 +166,39 @@ function render(){
     case 10:
             uridium_render();
             break;
-    case 11:
+    case 17:
             checker_init();
             callNextPart();
             break;
-    case 12:
+    case 18:
             checker_render();
             break;
-    case 13:
+    case 11:
             plasma_init();
             callNextPart();
             break;
-    case 14:
+    case 12:
             plasma_render();
             break;
-    case 15:
+    case 13:
             karma_init();
             callNextPart();
             break;
-    case 16:
+    case 14:
             karma_render();
             break;
-    case 17:
+    case 19:
             tunnel_init();
             callNextPart();
             break;
-    case 18:
+    case 20:
             tunnel_render();
             break;
-    case 19:
+    case 15:
             planier_init();
             callNextPart();
             break;
-    case 20:
+    case 16:
             planier_render();
             break;
     case 21:

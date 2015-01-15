@@ -2,6 +2,8 @@ function planier_init()
 {
   stage.fill(c64.colors.black);
 
+  if (demoIsLive) playSong('sid/Big_Funk.sid',0);
+
   planier = [];
 
   planier.logo = new image ("gfx/awsm_logo_bubble.gif");
@@ -20,15 +22,19 @@ function planier_init()
   planier.scrolltext = "$$  THE GREETINGS SCREEN!";
   planier.scrolltext += "$$$$AIRO";
   planier.scrolltext += "$$AYOROS";
-  planier.scrolltext += "$$DANE";
+  planier.scrolltext += "$$CRAYFISH77 // DESIRE";
+  planier.scrolltext += "$$DANE // BOOZE DESIGN";
   planier.scrolltext += "$$DRSKULL";
   planier.scrolltext += "$$GANDALF";
   planier.scrolltext += "$$JARI VUOKSENRANTA";
-  planier.scrolltext += "$$LINUS";
+  planier.scrolltext += "$$JOHN // IPHONE1911";
+  planier.scrolltext += "$$LINUS // VIRUZ";
   planier.scrolltext += "$$MELLOW MAN";
   planier.scrolltext += "$$NEW CORE";
-  planier.scrolltext += "$$NONAMENO";
+  planier.scrolltext += "$$NONAMENO // CODEF";
   planier.scrolltext += "$$SOLO";
+  planier.scrolltext += "$$STIVEGATES // WINDOWS93";
+  planier.scrolltext += "$$STC // HEMOROIDS";
   planier.scrolltext += "$$SUBZERO";
   planier.scrolltext += "$$TINY'R'SID";
   planier.scrolltext += "$$TOTORMAN";
@@ -49,9 +55,11 @@ function planier_init_planierscroll(canvas,text)
   plaScrollX = 0;
   plaScrollY = 0;
   plaScrollCharCounter = 0;
+  playSinY = 0;
 
   for (i = 0; i<plaScrollText.length;i++){
 
+    playSinY += 0.2;
     if (plaScrollText[i]=="W" || plaScrollText[i]=="N" || plaScrollText[i]=="M" ){
       plaScrollX+=1;
     }
@@ -65,7 +73,7 @@ function planier_init_planierscroll(canvas,text)
       plaScrollY-=14;
     }else{
 
-      plaScrollAllText[plaScrollCharCounter] = new PlanierScroll (canvas,plaScrollText[i],30+plaScrollX+plaScrollFontWidth*i,-10+plaScrollY,0.6,planier.font1,planier.font2);
+      plaScrollAllText[plaScrollCharCounter] = new PlanierScroll (canvas,plaScrollText[i],30+plaScrollX+plaScrollFontWidth*i,plaScrollY,0.4,playSinY,planier.font1,planier.font2);
       plaScrollCharCounter ++;
     }
 
@@ -80,7 +88,7 @@ function planier_init_planierscroll(canvas,text)
 }
 
 
-function PlanierScroll(canvas,text, xPos, yPos, speed,font1,font2)
+function PlanierScroll(canvas,text, xPos, yPos, speed,sinY, font1,font2)
 {
 
   // moves text
@@ -90,26 +98,37 @@ function PlanierScroll(canvas,text, xPos, yPos, speed,font1,font2)
   this.xPos = xPos;
   this.yPos = yPos;
   this.speed = speed;
+  this.sinY = sinY;
   this.font1 = font1;
   this.font2 = font2;
   this.currentFont = this.font1;
+  this.planiert = 0;
+  this.sinYPos = 0;
 
   this.draw = function(){
 
-  // as long as the text isn't past the upper border, do the movement math
-  if (this.yPos < 220){
-    this.yPos += this.speed;
-  }
+    this.sinYPos = Math.floor(Math.sin(this.sinY)*4);
 
-  if (this.yPos > 40 && this.yPos < 220){
-    // if text is within visible area, draw it to the canvas
-    this.currentFont.print(this.canvas,this.text,this.xPos,Math.floor(this.yPos));
-  }
+     if (!this.planiert){
+       this.sinY += 0.4;
+     }
 
-  if (this.yPos > planier.yPos){
-    // if text is within visible area, draw it to the canvas
-    this.currentFont = this.font2;
-  }
+
+    // as long as the text isn't past the upper border, do the movement math
+    if (this.yPos < 220){
+      this.yPos += this.speed;
+    }
+
+    if (this.yPos > 40 && this.yPos < 220){
+      // if text is within visible area, draw it to the canvas
+      this.currentFont.print(this.canvas,this.text,this.xPos,Math.floor(this.yPos+this.sinYPos));
+    }
+
+    if (this.yPos > planier.yPos){
+      // if text is within visible area, draw it to the canvas
+      this.currentFont = this.font2;
+      this.planiert = 1;
+    }
 
 
 };
