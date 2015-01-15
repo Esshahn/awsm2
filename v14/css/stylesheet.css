@@ -1,0 +1,52 @@
+
+html, body
+{
+  margin: 0;
+  padding: 0;
+}
+
+.img{
+  position:absolute;
+  z-index:30;
+  }
+
+body
+{
+  background-color: #666666;
+  font-family: 'Courier New';
+}
+
+#mainscreen{
+  padding: 20px;
+}
+
+#canvas_container
+{
+  position:relative;
+  left:108px;
+  top:110px;
+  z-index:1;
+}
+
+#info_container
+{
+
+
+}
+
+#main:-moz-full-screen,
+#main:-moz-full-screen canvas {
+	background-color: #000000;
+	height: 100%;
+}
+
+#main:-webkit-full-screen,
+#main:-webkit-full-screen canvas {
+	background-color: #000000;
+	height: 100%;
+}
+
+#main:fullscreen,
+#main:fullscreen canvas {
+	background-color: #000000;
+	height: 100%;
