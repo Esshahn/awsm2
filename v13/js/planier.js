@@ -26,6 +26,7 @@ function planier_init()
   planier.scrolltext += "$$DANE // BOOZE DESIGN";
   planier.scrolltext += "$$DRSKULL";
   planier.scrolltext += "$$GANDALF";
+  planier.scrolltext += "$$GENESIS PROJECT";
   planier.scrolltext += "$$JARI VUOKSENRANTA";
   planier.scrolltext += "$$JOHN // IPHONE1911";
   planier.scrolltext += "$$LINUS // VIRUZ";

@@ -2,8 +2,8 @@ function tunnel_init()
 {
   stage.fill(c64.colors.black);
 
-  playSong('sid/Stretch_Marks.sid',0);
-  
+  if(demoIsLive) playSong('sid/Stretch_Marks.sid',0);
+
   weltraumqualle_outline = new image("gfx/weltraumqualle_outline.gif");
   weltraumqualle_inline = new image("gfx/weltraumqualle_inline.gif");
   weltraumqualle_awsm = new image("gfx/weltraumqualle_awsm.gif");
