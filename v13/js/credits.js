@@ -49,19 +49,12 @@ function credits_init()
 
   sinusScrolltext += "$$            THANK YOU.";
 
-  sinusScrolltext += "$$$$  --== THE GREETINGS ==--";
-  sinusScrolltext += "$$AIRO - AYOROS - DANE - GANDALF";
-  sinusScrolltext += "$JARI VUOKSENRANTA - LINUS";
-  sinusScrolltext += "$MELLOW MAN - NEW CORE - NONAMENO";
-  sinusScrolltext += "$SOLO - SUBZERO - TINY'R'SID";
-  sinusScrolltext += "$TOTORMAN - AND ALL CODEF DEVS";
-
-  sinusScrolltext += "$$$$   --== THE CREDITS ==--";
+  sinusScrolltext += "$$$$     --== ABOUT AWSM ==--";
   sinusScrolltext += "$$AWSM is actually just me, so most";
   sinusScrolltext += "$of the code and graphics are done";
   sinusScrolltext += "$by only me, unless stated below:";
 
-  sinusScrolltext += "$$$$   --== C64 LOADER ==--";
+  sinusScrolltext += "$$$$      --== C64 LOADER ==--";
   sinusScrolltext += "$$I ended up building a small lib";
   sinusScrolltext += "$for C64 effects, including colors,";
   sinusScrolltext += "$hires- and multicolor modes,";
@@ -80,13 +73,15 @@ function credits_init()
   sinusScrolltext += "$Well, I lost track of that goal and";
   sinusScrolltext += "$ended up somewhere else instead.";
 
-  sinusScrolltext += "$$$$ --== FULL OF SINUS ==--";
+  sinusScrolltext += "$$$$    --== FULL OF SINUS ==--";
   sinusScrolltext += "$$Music: Sasha Stojanovic (Dalton)";
   sinusScrolltext += "$$The idea of a floppy disk as a";
   sinusScrolltext += "$monolith on the moon fascinated me";
   sinusScrolltext += "$so I made this screen.";
+  sinusScrolltext += "$$The whole title is obviously one";
+  sinusScrolltext += "$big 2001 reference.";
 
-  sinusScrolltext += "$$$$ --== URIDIUM SCREEN ==--";
+  sinusScrolltext += "$$$$  --== URIDIUM SCREEN ==--";
   sinusScrolltext += "$$Music: M. Wilson & D. Haynes";
   sinusScrolltext += "$$A classic starfield cracktro with a";
   sinusScrolltext += "$funky tune from Cool Croc Twins.";
@@ -97,7 +92,7 @@ function credits_init()
   sinusScrolltext += "$$The code for the checkerboard is";
   sinusScrolltext += "$based on a CODEF demo by Drskull.";
 
-  sinusScrolltext += "$$$$--== AWSM9001 PLASMA ==--";
+  sinusScrolltext += "$$$$ --== AWSM9001 PLASMA ==--";
   sinusScrolltext += "$$Music: Sascha Zeidler (Linus)";
   sinusScrolltext += "$Original plasma: Kevin Roast";
   sinusScrolltext += "$$Special thanks to Linus";
@@ -110,7 +105,7 @@ function credits_init()
   sinusScrolltext += "$I named the screen after it:";
   sinusScrolltext += "$'Positive Karma'.";
 
-  sinusScrolltext += "$$$$ --== WELTRAUMQUALLE ==--";
+  sinusScrolltext += "$$$$   --== WELTRAUMQUALLE ==--";
   sinusScrolltext += "$$Music: ";
   sinusScrolltext += "$$Original tunnel code taken from";
   sinusScrolltext += "$a CODEF demo by Totorman.";
@@ -120,18 +115,20 @@ function credits_init()
   sinusScrolltext += "$could make a demo as big as this";
   sinusScrolltext += "$with all these versions.";
 
-  sinusScrolltext += "$$$$ --== PLANIERRAUPE ==--";
+  sinusScrolltext += "$$$$   --== CREDITS SCREEN ==--";
   sinusScrolltext += "$$Music: ";
-  sinusScrolltext += "$$";
+  sinusScrolltext += "$$Just a small idea to show off";
+  sinusScrolltext += "$my proportional charset scroll.";
+  sinusScrolltext += "$I think it turned out fun.";
 
-  sinusScrolltext += "$$$$  --== BLADERUNNER ==--";
+  sinusScrolltext += "$$$$     --== BLADERUNNER ==--";
   sinusScrolltext += "$$Music: Johan Astrand (Zyron)";
   sinusScrolltext += "$$A magical scene from Bladerunner.";
   sinusScrolltext += "$I had to do a C64 hommage.";
   sinusScrolltext += "$The paper unicorn at the end";
   sinusScrolltext += "$is a key symbol used in the movie.";
 
-  sinusScrolltext += "$$$$  --== THESE CREDITS ==--";
+  sinusScrolltext += "$$$$    --== THESE CREDITS ==--";
   sinusScrolltext += "$$Music: Stellan Andersson (Dane)";
   sinusScrolltext += "$$Special thanks to Stellan for";
   sinusScrolltext += "$giving me permission to use his";
@@ -140,7 +137,51 @@ function credits_init()
   sinusScrolltext += "$soundtrack for 'Edge of Disgrace'";
   sinusScrolltext += "$is among the best ever done.";
 
-  sinusScrolltext += "$$$$";
+  sinusScrolltext += "$$$$   --== GENERAL STUFF ==--";
+  sinusScrolltext += "$$I never thought this little demo";
+  sinusScrolltext += "$would end up being so huge.";
+  sinusScrolltext += "$I learned to value the real C64";
+  sinusScrolltext += "$prods even more, especially when";
+  sinusScrolltext += "$it comes to consistancy, flow";
+  sinusScrolltext += "$and linking all together.";
+  sinusScrolltext += "$$FULL OF SINUS is much more";
+  sinusScrolltext += "$a collection of intros than it is";
+  sinusScrolltext += "$a well planned multi-part demo.";
+
+  sinusScrolltext += "$$$$    --== TECH STUFF ==--";
+  sinusScrolltext += "$Even for a one trick pony like me";
+  sinusScrolltext += "$(after all, the demo is actually";
+  sinusScrolltext += "$full of sinus routines...)";
+  sinusScrolltext += "$there's some cool code used:";
+  sinusScrolltext += "$$CODEF by NoNameNo is a";
+  sinusScrolltext += "$JavaScript demo framework.";
+  sinusScrolltext += "$Simple, but very powerful.";
+
+  sinusScrolltext += "$$Tiny'r'Sid by Juergen Wothke";
+  sinusScrolltext += "$is a cool player that lets you";
+  sinusScrolltext += "$easily play your favorite";
+  sinusScrolltext += "$SID sound files.";
+  sinusScrolltext += "$$Without these, I probably would";
+  sinusScrolltext += "$never started this. Thanks!";
+  sinusScrolltext += "$$Besides, if you like anything";
+  sinusScrolltext += "$you see here, feel free to";
+  sinusScrolltext += "$look at the code and use it";
+  sinusScrolltext += "$for your own demos.";
+  sinusScrolltext += "$$I especially recommend the";
+  sinusScrolltext += "$colorReduce() function, which";
+  sinusScrolltext += "$is responsible for many effects";
+  sinusScrolltext += "$in this demo. It maps any color";
+  sinusScrolltext += "$on the canvas to the best match";
+  sinusScrolltext += "$from the C64 palette.";
+  sinusScrolltext += "$IN REALTIME!";
+
+  sinusScrolltext += "$$$$   Alright folks, that's it.";
+  sinusScrolltext += "$    Thank you for watching.";
+  sinusScrolltext += "$$$$   See you in the next demo!";
+  sinusScrolltext += "$$$$   PS: Any demo groups out";
+  sinusScrolltext += "$   there looking for support?";
+  sinusScrolltext += "$$$$          AWSM OUT.";
+
 
   credits_init_flyscroll(credits_scroller_canvas,sinusScrolltext);
 

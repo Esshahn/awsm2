@@ -78,7 +78,7 @@ function checkKeyPressed(e){
     mycanvas160.fill(c64.colors.black);
     border.fill(c64.colors.black);
     playSong('sid/empty.sid',0);
-    window.setTimeout(callNextPartKeyPress,Math.random()*3000+1000);
+    window.setTimeout(callNextPartKeyPress,Math.random()*2000+500);
   }
 
   if (keyCode == 70){
