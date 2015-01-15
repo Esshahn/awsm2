@@ -128,6 +128,7 @@ function render(){
     case 1:
             //clearScreen();
             callNextPart();
+
             break;
 
     case 2:
