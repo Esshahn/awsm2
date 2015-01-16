@@ -68,7 +68,7 @@ function logoMoveAndGradient(){
   awsm_logo_outline.draw(mycanvas,77+this.sin,0);
   awsm_logo_outline.draw(mycanvas,77+this.sin2,0);
   mycanvas.contex.globalCompositeOperation='darker';
-    mycanvas.quad(0,0,320,70,c64.colors["dark_grey"]);
+    mycanvas.quad(0,0,320,70,c64.colors.dark_grey);
   mycanvas.contex.globalCompositeOperation='source-over';
   awsm_logo_blueScreen_canvas.draw(mycanvas,77+this.sin3,0);
 

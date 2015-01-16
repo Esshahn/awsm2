@@ -3,7 +3,7 @@ function tunnel_init()
   stage.fill(c64.colors.black);
 
   playSong('sid/Stretch_Marks.sid',0);
-  
+
   weltraumqualle_outline = new image("gfx/weltraumqualle_outline.gif");
   weltraumqualle_inline = new image("gfx/weltraumqualle_inline.gif");
   weltraumqualle_awsm = new image("gfx/weltraumqualle_awsm.gif");
@@ -14,10 +14,10 @@ function tunnel_init()
   tunnel_font = new image('gfx/font_awsm_5x5.gif');
   tunnel_font.initTile(5,6,33);
   tunnel_scroller = new scrolltext_horizontal();
-  tunnel_scroller.scrtxt="############################### DIE WELTRAUMQUALLE BAHNT SICH IHREN WEG DURCH DIE GALAXIEN     DURCHSTREIFT SCHEINBAR MUEHELOS DOCH MIT ALLE ZEITEN UEBERDAUERNDER ENTSCHLOSSENHEIT SONNENSYSTEME GLEICH DEN IRDISCHEN SEEN ZWISCHEN DEN ENDLOSEN MEEREN     GETRIEBEN VON DEM EINEN WUNSCH WELCHER DER URSPRUNG ALLEN WESENS IM UNIVERSUM IST      EINMAL SCHOEN SCHEISSEN GEHEN UND DABEI TOP WLAN HABEN ########################";
-  tunnel_scroller.init(tunnel_font_canvas,tunnel_font,1);
+  tunnel_scroller.scrtxt="############################ DIE WELTRAUMQUALLE BAHNT SICH IHREN WEG DURCH DIE GALAXIEN     DURCHSTREIFT SCHEINBAR MUEHELOS DOCH MIT ALLE ZEITEN UEBERDAUERNDER ENTSCHLOSSENHEIT SONNENSYSTEME GLEICH DEN IRDISCHEN SEEN ZWISCHEN DEN ENDLOSEN MEEREN     GETRIEBEN VON DEM EINEN WUNSCH WELCHER DER URSPRUNG ALLEN WESENS IM UNIVERSUM IST      EINMAL SCHOEN SCHEISSEN GEHEN UND DABEI TOP WLAN HABEN #####################";
+  tunnel_scroller.init(tunnel_font_canvas,tunnel_font,1.2);
 
-
+  tunnelCanvasY = -300;
 
   lessFPSCounter = 0;
 
@@ -41,7 +41,7 @@ function tunnel_init()
 
   spri = 0 ;
 
-  tunnel_zDist = 0;
+  tunnel_zDist = 3;
 
   a=0 ;
 
@@ -133,7 +133,11 @@ function tunnel_render()
     }
 
     do_3d(mycanvas_tunnel,mysprite[spri],5) ;
-    mycanvas_tunnel.draw(mycanvas160,0,0,tunnel_alpha) ;
+
+    if (tunnelCanvasY<0){
+      tunnelCanvasY += 2;
+    }
+    mycanvas_tunnel.draw(mycanvas160,0,tunnelCanvasY,tunnel_alpha) ;
 
     weltraumqualle_awsm.draw(mycanvas160,39,138);
     mycanvas160.contex.globalCompositeOperation='lighter';

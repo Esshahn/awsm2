@@ -71,14 +71,18 @@ function checkKeyPressed(e){
     // the code below simulates some waiting time between the parts
     // to make it look more like a c64. If stuff comes too fast the
     // illusion of sitting in front of the 64 is easily destroyed.
-    tempPlayPart = playPart;
-    playPart = 0;
-    stage.fill(c64.colors.black);
-    mycanvas.fill(c64.colors.black);
-    mycanvas160.fill(c64.colors.black);
-    border.fill(c64.colors.black);
-    playSong('sid/empty.sid',0);
-    window.setTimeout(callNextPartKeyPress,Math.random()*2000+500);
+    // the number in the if statement needs to be the last number of the switch case below
+    // to actually stop at the last demo part
+    if (playPart != 26){
+      tempPlayPart = playPart;
+      playPart = 0;
+      stage.fill(c64.colors.black);
+      mycanvas.fill(c64.colors.black);
+      mycanvas160.fill(c64.colors.black);
+      border.fill(c64.colors.black);
+      playSong('sid/empty.sid',0);
+      window.setTimeout(callNextPartKeyPress,Math.random()*2000+500);
+    }
   }
 
   if (keyCode == 70){
@@ -102,7 +106,7 @@ function callNextPartKeyPress(){
   // after the window timeout, the right part to play needs to be restored
   // before we can move on. This only gets called from they keypress event.
   playPart = tempPlayPart;
-  callNextPart();
+  callNextPart(); // this needs to be set to the last part in the switch case below
 }
 
 function callNextPart(){
@@ -229,6 +233,15 @@ function render(){
 
     case 24:
             credits_render();
+            break;
+
+    case 25:
+            c64end_init();
+            callNextPart();
+            break;
+
+    case 26:
+            c64end_render();
             break;
 
   }

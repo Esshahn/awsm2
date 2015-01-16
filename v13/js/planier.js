@@ -20,25 +20,32 @@ function planier_init()
   planier.font2.initTile(5,12,33);
 
   planier.scrolltext = "$$  THE GREETINGS SCREEN!";
+  planier.scrolltext += "$$$$ADT // ABSOLUTE";
   planier.scrolltext += "$$$$AIRO";
   planier.scrolltext += "$$AYOROS";
+  planier.scrolltext += "$$BL4CK // N-VC 1993";
+  planier.scrolltext += "$$BRAINWALKER";
   planier.scrolltext += "$$CRAYFISH77 // DESIRE";
   planier.scrolltext += "$$DANE // BOOZE DESIGN";
   planier.scrolltext += "$$DRSKULL";
+  planier.scrolltext += "$$EOF // SCIZORS";
+  planier.scrolltext += "$$E$G // HOKUTO FORCE";
   planier.scrolltext += "$$GANDALF";
-  planier.scrolltext += "$$GENESIS PROJECT";
+  planier.scrolltext += "$$HIQ // COMPAGIONS";
   planier.scrolltext += "$$JARI VUOKSENRANTA";
   planier.scrolltext += "$$JOHN // IPHONE1911";
   planier.scrolltext += "$$LINUS // VIRUZ";
-  planier.scrolltext += "$$MELLOW MAN";
+  planier.scrolltext += "$$MELLOW MAN // UP ROUGH";
   planier.scrolltext += "$$NEW CORE";
   planier.scrolltext += "$$NONAMENO // CODEF";
   planier.scrolltext += "$$SOLO";
-  planier.scrolltext += "$$STIVEGATES // WINDOWS93";
   planier.scrolltext += "$$STC // HEMOROIDS";
+  planier.scrolltext += "$$STF // FLOOD";
+  planier.scrolltext += "$$STIVEGATES // WINDOWS93";  
   planier.scrolltext += "$$SUBZERO";
   planier.scrolltext += "$$TINY'R'SID";
   planier.scrolltext += "$$TOTORMAN";
+  planier.scrolltext += "$$WERTSTAHL // GENESIS PROJECT";
   planier.scrolltext += "$$AND ALL CODEF DEVS";
 
   planier_init_planierscroll(mycanvas160,planier.scrolltext);

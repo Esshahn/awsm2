@@ -20,24 +20,38 @@ function planier_init()
   planier.font2.initTile(5,12,33);
 
   planier.scrolltext = "$$  THE GREETINGS SCREEN!";
-  planier.scrolltext += "$$$$AIRO";
+  planier.scrolltext += "$$$$ADT // ABSOLUTE";
+  planier.scrolltext += "$$AIRO";
   planier.scrolltext += "$$AYOROS";
+  planier.scrolltext += "$$BL4CK // N-VC 1993";
+  planier.scrolltext += "$$BRAINWALKER";
   planier.scrolltext += "$$CRAYFISH77 // DESIRE";
+  planier.scrolltext += "$$DAGON // EVENT HORIZON";
   planier.scrolltext += "$$DANE // BOOZE DESIGN";
+  planier.scrolltext += "$$DOC2k";
   planier.scrolltext += "$$DRSKULL";
+  planier.scrolltext += "$$DYNO";
+  planier.scrolltext += "$$EOF // SCIZORS";
+  planier.scrolltext += "$$ESG // HOKUTO FORCE";
   planier.scrolltext += "$$GANDALF";
-  planier.scrolltext += "$$JARI VUOKSENRANTA";
+  planier.scrolltext += "$$GUNSTICK // UNL. MATRICKS";
+  planier.scrolltext += "$$HIQ // COMPAGIONS";
   planier.scrolltext += "$$JOHN // IPHONE1911";
   planier.scrolltext += "$$LINUS // VIRUZ";
-  planier.scrolltext += "$$MELLOW MAN";
+  planier.scrolltext += "$$MELLOW MAN // UP ROUGH";
   planier.scrolltext += "$$NEW CORE";
   planier.scrolltext += "$$NONAMENO // CODEF";
   planier.scrolltext += "$$SOLO";
-  planier.scrolltext += "$$STIVEGATES // WINDOWS93";
+  planier.scrolltext += "$$SPEEDSTAR";
   planier.scrolltext += "$$STC // HEMOROIDS";
+  planier.scrolltext += "$$STF // FLOOD";
+  planier.scrolltext += "$$STIVEGATES // WINDOWS93";
   planier.scrolltext += "$$SUBZERO";
   planier.scrolltext += "$$TINY'R'SID";
   planier.scrolltext += "$$TOTORMAN";
+  planier.scrolltext += "$$WERTSTAHL // GENESIS PR.";
+  planier.scrolltext += "$$WEZO";
+  planier.scrolltext += "$$ZEROLF // SPACEWOLF";
   planier.scrolltext += "$$AND ALL CODEF DEVS";
 
   planier_init_planierscroll(mycanvas160,planier.scrolltext);
@@ -73,7 +87,7 @@ function planier_init_planierscroll(canvas,text)
       plaScrollY-=14;
     }else{
 
-      plaScrollAllText[plaScrollCharCounter] = new PlanierScroll (canvas,plaScrollText[i],30+plaScrollX+plaScrollFontWidth*i,plaScrollY,0.4,playSinY,planier.font1,planier.font2);
+      plaScrollAllText[plaScrollCharCounter] = new PlanierScroll (canvas,plaScrollText[i],30+plaScrollX+plaScrollFontWidth*i,plaScrollY,0.6,playSinY,planier.font1,planier.font2);
       plaScrollCharCounter ++;
     }
 
@@ -85,6 +99,7 @@ function planier_init_planierscroll(canvas,text)
       plaScrollX-=1;
     }
   }
+  fullScrollerHeight = Math.abs(plaScrollY);
 }
 
 
@@ -107,31 +122,36 @@ function PlanierScroll(canvas,text, xPos, yPos, speed,sinY, font1,font2)
 
   this.draw = function(){
 
-    this.sinYPos = Math.floor(Math.sin(this.sinY)*4);
-
-     if (!this.planiert){
-       this.sinY += 0.4;
-     }
-
-
     // as long as the text isn't past the upper border, do the movement math
-    if (this.yPos < 220){
+    if (this.yPos <= fullScrollerHeight+this.canvas.height){
       this.yPos += this.speed;
     }
 
-    if (this.yPos > 40 && this.yPos < 220){
+    if (this.yPos >= fullScrollerHeight){
+      this.yPos -= fullScrollerHeight + this.canvas.height;
+      this.currentFont = this.font1;
+      this.planiert = 0;
+    }
+
+    if (this.yPos > 30 && this.yPos < 210){
+
+      this.sinYPos = Math.floor(Math.sin(this.sinY)*4);
+
+      if (!this.planiert){
+        this.sinY += 0.4;
+      }
+
+      if (this.yPos > planier.yPos){
+        // if text is within visible area, draw it to the canvas
+        this.currentFont = this.font2;
+        this.planiert = 1;
+      }
+
       // if text is within visible area, draw it to the canvas
       this.currentFont.print(this.canvas,this.text,this.xPos,Math.floor(this.yPos+this.sinYPos));
     }
 
-    if (this.yPos > planier.yPos){
-      // if text is within visible area, draw it to the canvas
-      this.currentFont = this.font2;
-      this.planiert = 1;
-    }
-
-
-};
+  };
 }
 
 
@@ -149,19 +169,25 @@ function Planier_checker(color1,color2,xtilesize,ytilesize,yspeed){
     this.xstart = 0;
     this.ymove += this.yspeed;
     this.canvas.fill(this.color2);
+    this.canvasYMax = (this.canvas.height+this.ytilesize*2)/this.ytilesize;
+    this.canvasXMax = (this.canvas.width+this.xtilesize*2)/this.xtilesize;
 
     if (Math.abs(this.ymove) >= this.ytilesize*2){
       this.ymove = 0;
     }
 
-    for (var j= -this.ytilesize; j<= (this.canvas.height+this.ytilesize*2)/this.ytilesize; j++){
+    for (var j= -this.ytilesize; j<= this.canvasYMax; j++){
       if (this.xstart === 0){
         this.xstart = this.xtilesize;
       }else{
         this.xstart = 0;
       }
-      for (var i= -xtilesize; i<= (this.canvas.width+this.xtilesize*2)/this.xtilesize; i+=2){
-          this.canvas.quad(Math.floor(this.xstart+i*this.xtilesize),Math.floor(this.ymove+j*this.ytilesize),this.xtilesize,this.ytilesize,this.color1);
+
+      this.tileYPos = Math.floor(this.ymove+j*this.ytilesize);
+
+      for (var i= -xtilesize; i<= this.canvasXMax; i+=2){
+        this.tileXPos = Math.floor(this.xstart+i*this.xtilesize);
+        this.canvas.quad(this.tileXPos,this.tileYPos,this.xtilesize,this.ytilesize,this.color1);
       }
 
     }
@@ -183,41 +209,46 @@ function planier_render()
   lessFPSCounter ++;
   if (lessFPSCounter%3===0){
 
+    // black canvas with red stripe in the middle
     mycanvas160.fill(c64.colors.black);
     mycanvas160.quad(25,0,110,200,c64.colors.light_red);
+
+    // draw the open red border and the white lines
     border.quad(80,0,220,30,c64.colors.red);
     border.quad(80,200,220,120,c64.colors.red);
     border.quad(80,29,220,1,c64.colors.white);
     border.quad(80,230,220,1,c64.colors.white);
 
+    // the sinus shizzle for the moving cylinder
     planier.yPos = Math.floor(Math.sin(planier.sinY)*50+100);
     planier.sinY+=0.03;
 
-
+    // draw the shadow of the cylinder
     mycanvas160.quad(25,planier.yPos+30,110,10,c64.colors.red);
 
-    // draw scroller
-
-    // draw the scrolltext to the scroller canvas
+    // draw the scrolltext
     for (i = 0; i<plaScrollCharCounter;i++){
       plaScrollAllText[i].draw();
     }
-    // draw the checker to the checker canvas
 
-
+    // draw the shadow that darkens the scrolltext
     mycanvas160.contex.globalCompositeOperation='darker';
+    mycanvas160.quad(25,36,110,5,c64.colors.light_grey);
     mycanvas160.quad(25,planier.yPos+30,110,10,c64.colors.light_grey);
     mycanvas160.contex.globalCompositeOperation='source-over';
 
+    // draw the checker on the cylinder and the cylinder to the main canvas
     planier.checker.draw(planier.canvas,Math.floor(Math.cos(planier.sinY)*3)+0.2);
-
     planier.canvas.draw(mycanvas160,20,planier.yPos);
 
-    mycanvas160.quad(25,0,110,44,c64.colors.light_red);
+    // draw invisible red area below the logo to cover the scroller
+    mycanvas160.quad(25,0,110,36,c64.colors.light_red);
+
+    // draw the logo. Partly in the main area, party in the border.
     planier.logoborder.draw(border,136,18);
     planier.logo.draw(mycanvas160,53,-12);
 
   }
 
-    colorReduce(mycanvas160);
+  colorReduce(mycanvas160);
 }

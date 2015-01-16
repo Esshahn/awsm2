@@ -8,9 +8,8 @@ function credits_init()
   credits_bubble1 = new image("gfx/credits_bubble1.gif");
   credits_bubble2 = new image("gfx/credits_bubble2.gif");
   credits_bubble3 = new image("gfx/credits_bubble3.gif");
-  //credits_bubble4 = new image("gfx/credits_bubble4.gif");
-  credits_font = new image("gfx/font_wiki.gif");
-  credits_font.initTile(8,16,32);
+  credits_font = new image("gfx/font_zxspectrum_8x8.gif");
+  credits_font.initTile(8,8,32);
 
   credits_scroller_canvas = new canvas (320,200);
 
@@ -242,13 +241,13 @@ function credits_init_flyscroll(canvas,text)
     if (flyScrollText[i]=="$"){
 
       flyScrollX = 20 -(i+1) * flyScrollFontWidth;
-      flyScrollY+=22;
+      flyScrollY+=16;
       flyScrollStartSinX = 0;
       flyScrollStartSinY = 0;
 
     }else{
 
-      flyScrollAllText[flyScrollCharCounter] = new FlyScroll (canvas,flyScrollText[i],flyScrollX+flyScrollFontWidth*i,200+flyScrollY,0.3,flyScrollStartSinX, flyScrollStartSinY,0.06);
+      flyScrollAllText[flyScrollCharCounter] = new FlyScroll (canvas,flyScrollText[i],flyScrollX+flyScrollFontWidth*i,200+flyScrollY,0.2,flyScrollStartSinX, flyScrollStartSinY,0.06);
       flyScrollStartSinX -= 0.1;
       flyScrollStartSinY -= 0.15;
       flyScrollCharCounter ++;

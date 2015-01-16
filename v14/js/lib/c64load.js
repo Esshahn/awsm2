@@ -72,6 +72,7 @@ function C64Load(){
     this.scanlines_gfx.draw(this.targetCanvas,0,ypos);
   };
 
+
   this.run = function(){
     // base loop with c64 screen colors and bootup text
 
