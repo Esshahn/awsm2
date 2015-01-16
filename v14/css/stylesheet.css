@@ -13,7 +13,6 @@ html, body
 body
 {
   background-color: #666666;
-  font-family: 'Courier New';
 }
 
 #mainscreen{
@@ -28,25 +27,22 @@ body
   z-index:1;
 }
 
-#info_container
-{
-
-
-}
 
 #main:-moz-full-screen,
 #main:-moz-full-screen canvas {
-	background-color: #000000;
+	background-color: #222222;
 	height: 100%;
 }
 
 #main:-webkit-full-screen,
 #main:-webkit-full-screen canvas {
-	background-color: #000000;
+	background-color: #222222;
 	height: 100%;
 }
 
+
+
 #main:fullscreen,
 #main:fullscreen canvas {
-	background-color: #000000;
+	background-color: #222222;
 	height: 100%;
