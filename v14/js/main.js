@@ -1,3 +1,24 @@
+/*
+
+  MY GOD, IT'S FULL OF SINUS
+  A hommage to old school C64 demos in JavaScript
+  Created by Ingo Hinterding, 2014, 2015
+
+  All code and graphics in this demo are free to be copied
+  and used in your own demos, just don't blame me for any shitty code.
+  I know there's lots and lots of it in here.
+
+  If you use any of the code, fonts or graphics, please let me
+  know by sending me an email at ingo@awsm.de
+  and put me in your greetings section.
+
+  This demo is pretty resource heavy and probably works
+  best (or only) in a Chrome browser.
+
+*/
+
+
+
 function init(){
 
   // the stage canvas includes the c64 stages
@@ -12,6 +33,7 @@ function init(){
   mycanvas160 = new canvas (160,200); // the inner screen of the C64 with low resolution
   border = new canvas(380,320);      // the border of the C64
 
+  tempPlayPart = 0;
   // -----------------
 
   window.addEventListener("keydown", checkKeyPressed, false);
@@ -73,16 +95,7 @@ function checkKeyPressed(e){
     // illusion of sitting in front of the 64 is easily destroyed.
     // the number in the if statement needs to be the last number of the switch case below
     // to actually stop at the last demo part
-    if (playPart != 26){
-      tempPlayPart = playPart;
-      playPart = 0;
-      stage.fill(c64.colors.black);
-      mycanvas.fill(c64.colors.black);
-      mycanvas160.fill(c64.colors.black);
-      border.fill(c64.colors.black);
-      playSong('sid/empty.sid',0);
-      window.setTimeout(callNextPartKeyPress,Math.random()*2000+500);
-    }
+    waitBeforeContinue();
   }
 
   if (keyCode == 70){
@@ -99,6 +112,20 @@ function checkKeyPressed(e){
       tempPlayPart = playPart;
       playPart = 0;
     }
+  }
+}
+
+function waitBeforeContinue(){
+  if (playPart != 26){
+    clearTimeout(loop);
+    tempPlayPart = playPart;
+    playPart = 999;
+    stage.fill(c64.colors.black);
+    mycanvas.fill(c64.colors.black);
+    mycanvas160.fill(c64.colors.black);
+    border.fill(c64.colors.black);
+    playSong('sid/empty.sid',0);
+    window.setTimeout(callNextPartKeyPress,Math.random()*2000+500);
   }
 }
 
@@ -123,9 +150,10 @@ function render(){
   Main demo loop. Usually there are different parts with functions named after the JS file.
   init funcs are run only once, so callNextPart can be called right after calling the init.
   loop funcs are running in loops, so the callNextPart runs from within the demo part when needed.
-  */
 
-  //console.log("Playing part: " + playPart);
+  Some window timeouts are set to continue the demo after some time to the next part.
+  Especially important for mobile devices that don't show a keyboard to skip manually.
+  */
 
   switch (playPart){
 
@@ -137,6 +165,7 @@ function render(){
 
     case 2:
             eaglesoft_init();
+            loop = setTimeout(waitBeforeContinue,60000);
             callNextPart();
             break;
 
@@ -167,6 +196,7 @@ function render(){
 
     case 9:
             uridium_init();
+            loop = setTimeout(waitBeforeContinue,80000);
             callNextPart();
             break;
 
@@ -176,6 +206,7 @@ function render(){
 
     case 11:
             plasma_init();
+            loop = setTimeout(waitBeforeContinue,100000);
             callNextPart();
             break;
 
@@ -185,6 +216,7 @@ function render(){
 
     case 13:
             karma_init();
+            loop = setTimeout(waitBeforeContinue,100000);
             callNextPart();
             break;
     case 14:
@@ -193,6 +225,7 @@ function render(){
 
     case 15:
             planier_init();
+            loop = setTimeout(waitBeforeContinue,200000);
             callNextPart();
             break;
 
@@ -202,6 +235,7 @@ function render(){
 
     case 17:
             checker_init();
+            loop = setTimeout(waitBeforeContinue,120000);
             callNextPart();
             break;
     case 18:
@@ -210,6 +244,7 @@ function render(){
 
     case 19:
             tunnel_init();
+            loop = setTimeout(waitBeforeContinue,200000);
             callNextPart();
             break;
 
@@ -228,6 +263,7 @@ function render(){
 
     case 23:
             credits_init();
+            loop = setTimeout(waitBeforeContinue,480000);
             callNextPart();
             break;
 
@@ -244,21 +280,19 @@ function render(){
             c64end_render();
             break;
 
+    case 999:
+            turboload();
+            break;
   }
 
-  // draw the 320*200 canvas on the scaled stage including the stages
+  // draw the canvas on the scaled stage including the stages
 
   border.draw(stage,0,0,1,0,2,2);
   mycanvas.draw(stage,60,60,1,0,2,2);
   mycanvas160.draw(stage,60,60,1,0,4,2);
 
-  /*
-  stage.contex.globalCompositeOperation='darker';
-  mycanvas160.draw(stage,62,62,0.5,0,4,2);
-  stage.contex.globalCompositeOperation='source-over';
-  */
 
-  // only show the scanlines whenn in live mode and not in fullscreen
+  // only show the scanlines when in live mode and not in fullscreen
   if (demoIsLive &&
     !(document.fullscreenElement ||
     document.webkitFullscreenElement ||

@@ -86,11 +86,6 @@ function credits_init()
   sinusScrolltext += "$funky tune from Cool Croc Twins.";
   sinusScrolltext += "$The first screen I did for this demo.";
 
-  sinusScrolltext += "$$$$ --== 3D CHECKERBOARD ==--";
-  sinusScrolltext += "$$Music: Stellan Andersson (Dane)";
-  sinusScrolltext += "$$The code for the checkerboard is";
-  sinusScrolltext += "$based on a CODEF demo by Drskull.";
-
   sinusScrolltext += "$$$$ --== AWSM9001 PLASMA ==--";
   sinusScrolltext += "$$Music: Sascha Zeidler (Linus)";
   sinusScrolltext += "$Original plasma: Kevin Roast";
@@ -104,6 +99,17 @@ function credits_init()
   sinusScrolltext += "$I named the screen after it:";
   sinusScrolltext += "$'Positive Karma'.";
 
+  sinusScrolltext += "$$$$   --== CREDITS SCREEN ==--";
+  sinusScrolltext += "$$Music: Tomas Danko (Danko)";
+  sinusScrolltext += "$$Just a small idea to show off";
+  sinusScrolltext += "$my proportional charset scroll.";
+  sinusScrolltext += "$I think it turned out fun.";
+
+  sinusScrolltext += "$$$$ --== 3D CHECKERBOARD ==--";
+  sinusScrolltext += "$$Music: Stellan Andersson (Dane)";
+  sinusScrolltext += "$$The code for the checkerboard is";
+  sinusScrolltext += "$based on a CODEF demo by Drskull.";
+
   sinusScrolltext += "$$$$   --== WELTRAUMQUALLE ==--";
   sinusScrolltext += "$$Music: Hein Holt";
   sinusScrolltext += "$$Original tunnel code taken from";
@@ -113,12 +119,6 @@ function credits_init()
   sinusScrolltext += "$got changed so often that I";
   sinusScrolltext += "$could make a demo as big as this";
   sinusScrolltext += "$with all these versions.";
-
-  sinusScrolltext += "$$$$   --== CREDITS SCREEN ==--";
-  sinusScrolltext += "$$Music: Tomas Danko (Danko)";
-  sinusScrolltext += "$$Just a small idea to show off";
-  sinusScrolltext += "$my proportional charset scroll.";
-  sinusScrolltext += "$I think it turned out fun.";
 
   sinusScrolltext += "$$$$     --== BLADERUNNER ==--";
   sinusScrolltext += "$$Music: Johan Astrand (Zyron)";
@@ -155,7 +155,6 @@ function credits_init()
   sinusScrolltext += "$$CODEF by NoNameNo is a";
   sinusScrolltext += "$JavaScript demo framework.";
   sinusScrolltext += "$Simple, but very powerful.";
-
   sinusScrolltext += "$$Tiny'r'Sid by Juergen Wothke";
   sinusScrolltext += "$is a cool player that lets you";
   sinusScrolltext += "$easily play your favorite";
