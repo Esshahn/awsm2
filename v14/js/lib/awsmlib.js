@@ -17,7 +17,7 @@ function fullscr(elemId) {
 
 function turboload(){
   border.fill("#000000");
-  for(i=0; i<20;i++){
+  for(i=0; i<2;i++){
 
     border.quad(Math.floor(Math.random()*border.width-100), (Math.floor(Math.random()*border.height)),Math.floor(Math.random()*border.width),1,c64.colors.white);
   }

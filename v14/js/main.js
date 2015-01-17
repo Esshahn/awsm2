@@ -206,7 +206,7 @@ function render(){
 
     case 11:
             plasma_init();
-            loop = setTimeout(waitBeforeContinue,100000);
+            loop = setTimeout(waitBeforeContinue,80000);
             callNextPart();
             break;
 
@@ -216,7 +216,7 @@ function render(){
 
     case 13:
             karma_init();
-            loop = setTimeout(waitBeforeContinue,100000);
+            loop = setTimeout(waitBeforeContinue,80000);
             callNextPart();
             break;
     case 14:
@@ -235,7 +235,7 @@ function render(){
 
     case 17:
             checker_init();
-            loop = setTimeout(waitBeforeContinue,120000);
+            loop = setTimeout(waitBeforeContinue,100000);
             callNextPart();
             break;
     case 18:
@@ -263,7 +263,7 @@ function render(){
 
     case 23:
             credits_init();
-            loop = setTimeout(waitBeforeContinue,480000);
+            loop = setTimeout(waitBeforeContinue,400000);
             callNextPart();
             break;
 
