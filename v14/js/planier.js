@@ -141,7 +141,7 @@ function PlanierScroll(canvas,text, xPos, yPos, speed,sinY, font1,font2)
         this.sinY += 0.4;
       }
 
-      if (this.yPos > planier.yPos){
+      if (this.yPos > planier.yPos+10){
         // if text is within visible area, draw it to the canvas
         this.currentFont = this.font2;
         this.planiert = 1;
