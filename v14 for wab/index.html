@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://wab.com/?screen=299 -->
+<html slick-uniqueid="3"><script type="text/javascript">window["_gaUserPrefs"] = { ioo : function() { return true; } }</script><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script>
+/*------------------------------------------------------------------------------
+Copyright (c) 2011 Antoine Santo Aka NoNameNo
+
+This File is part of the CODEF project.
+
+More info : http://codef.santo.fr
+Demo gallery http://www.wab.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+------------------------------------------------------------------------------*/
+</script>
+<meta property="og:title" content="Another Nice HTML5 screen on WAB.com from Dyno">
+<meta property="og:description" content="Please use Chrome or Chromium for perf and sound...">
+<meta property="og:image" content="http://www.wab.com/shots/screen299.png">
+<meta property="og:url" content="http%3A%2F%2Fwww.wab.com%2F%3Fscreen%3D299">
+<meta property="og:site_name" content="WAB.com">
+
+    <script src="./wab.com_files/codef_core.js"></script>
+    <script src="./wab.com_files/codef_music.js"></script>
+    <script type="text/javascript" src="js/lib/awsmlib.js"></script>
+    <script type="text/javascript" src="js/lib/c64load.js"></script>
+    <script type="text/javascript" src="js/lib/codef_core.js"></script>
+    <script type="text/javascript" src="js/lib/codef_scrolltext.js"></script>
+    <script type="text/javascript" src="js/lib/codef_3d.js"></script>
+    <script type="text/javascript" src="js/lib/tinyrsid.js"></script>
+    <script type="text/javascript" src="js/lib/TinyJSidWrapper.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/fullofsinus.js"></script>
+    <script type="text/javascript" src="js/awsm_uridium.js"></script>
+    <script type="text/javascript" src="js/eaglesoft.js"></script>
+    <script type="text/javascript" src="js/plasma.js"></script>
+    <script type="text/javascript" src="js/weltraumqualle.js"></script>
+    <script type="text/javascript" src="js/planier.js"></script>
+    <script type="text/javascript" src="js/roy.js"></script>
+    <script type="text/javascript" src="js/credits.js"></script>
+    <script type="text/javascript" src="js/checker.js"></script>
+    <script type="text/javascript" src="js/karma.js"></script>
+    <script type="text/javascript" src="js/c64_end.js"></script>
+    
+<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: Helvetica;
+			}
+			#backgroundHolder {
+				position: absolute;
+				height: 210px;
+				width: 100%;
+				overflow: hidden;
+			}
+			#realbody {
+				top: 0;
+				width: 100%;
+				overflow: auto;
+				max-height: 100%;
+			}
+			h1 {
+				margin-left: 22px;
+			}
+			p {
+				line-height: 22px;
+			}
+			a {
+				color: #fff;
+			}
+			a:hover {
+				text-decoration: none;
+			}
+			.page {
+				width: 860px;				margin: 0 auto;
+			}
+
+			.page2 {
+				width: 682px;				margin: 0 auto;
+			}
+
+			.content {
+				background-color: #333;
+				padding: 10px 20px;
+				border: 1px solid #fff;
+				-moz-border-radius: 12px;
+				-webkit-border-radius: 12px;
+			}
+		#main:-moz-full-screen,
+		#main:-moz-full-screen canvas {
+			background-color: #000000;
+			width: 100%;
+			height: 100%;
+		}
+		#main:-webkit-full-screen,
+		#main:-webkit-full-screen canvas {
+			background-color: #000000;
+			width: 100%;
+			height: 100%;
+		}
+		#main:fullscreen,
+		#main:fullscreen canvas {
+			background-color: #000000;
+			width: 100%;
+			height: 100%;
+		}
+		</style>
+<style type="text/css"></style></head>
+<body onload="init();" bgcolor="#000000">
+<img src="./wab.com_files/screen299.png" width="0" height="0">
+
+		<div id="backgroundHolder"> </div>
+		<div id="realbody">
+			<div class="page">
+				<center>
+					<img src="./wab.com_files/1.png"><br>
+					<font face="Verdana" size="3" color="#ffffff">
+						..:: 100% HTML5 / 0% FLASH ::.. <br>
+					</font>
+					<font face="Verdana" size="1" color="#ffffff">
+						<b>PLEASE USE Chrome / Chromium to browse this Website !! (for Music and Perfs)</b><br>
+						<br>
+						Twitter WAB Announcements : <a href="https://twitter.com/alonetrio">https://twitter.com/alonetrio</a><br>
+						FaceBook CODEF Users Group : <a href="https://www.facebook.com/groups/codef/">https://www.facebook.com/groups/codef/</a><br><br>
+					</font>
+				</center><br>
+<font face="Verdana" size="3" color="#ffffff">
+<center><b><a href="http://wab.com/?screen=0">BACK</a></b></center><br>
+<div class="content"><br>
+<center><div id="main"><canvas width="640" height="480"></canvas></div>
+<button onclick="fullscr(&#39;main&#39;);">Fullscreen</button>
+</center>
+<table width="100%">
+<tbody><tr>
+<td>
+Author : Dyno</td>
+<td align="right">
+Date : 2014-12-11<br>
+</td>
+</tr>
+</tbody></table>
+<center>
+<a href="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.wab.com%2F%3Fscreen%3D299', '_blank', 'width=600,height=400');void(0);"><img src="./wab.com_files/FB.png" alt="share on facebook"></a>
+<a href="javascript:window.open('https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.wab.com%2F&related=alonetrio&text=Another+Nice+html5+screen+from+Dyno+using+CODEF.+%28Use+Chrom+e%2Fium+for+perf+and+sound+%3B%29+%29&tw_p=tweetbutton&url=http%3A%2F%2Fwww.wab.com%2F%3Fscreen%3D299&via=alonetrio', '_blank', 'width=600,height=400');void(0);"><img src="./wab.com_files/TW.png"></a>
+</center>
+</div><br><br>
+
+</font><div class="page2"><font face="Verdana" size="3" color="#ffffff">
+<div class="content">
+<center>Comments</center><br>
+
+
+<br><br>
+<center>Add Comment</center><br>
+<form action="" method="POST">
+<font size="2">
+Nick :<br>
+<input type="text" name="nick"><br>
+<br>
+Human verification (enter the text of the ASCII-art below) :<br>
+<input type="text" name="check"><br>
+<br>
+Comment :<br>
+<input type="text" name="comment" size="70"><br>
+<input value="Add comment" type="submit">
+<input type="hidden" name="ID" value="299">
+<input type="hidden" name="postcomment" value="yes">
+
+<pre> .d8888b.   d888      d8888   .d8888b.
+d88P  Y88b d8888     d8P888  d88P  Y88b
+       888   888    d8P 888  888    888
+     .d88P   888   d8P  888  Y88b. d888
+ .od888P'    888  d88   888   'Y888P888
+d88P'        888  8888888888        888
+888'         888        888  Y88b  d88P
+888888888  8888888      888   'Y8888P'
+</pre>
+</font></form>
+<br>
+</div>
+</font>
+
+
+
+			</div>
+		</div>
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://admin.santo.fr/p1w1k/" : "http://admin.santo.fr/p1w1k/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./wab.com_files/piwik.js" type="text/javascript"></script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 2);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript>&lt;p&gt;&lt;img src="http://admin.santo.fr/p1w1k/piwik.php?idsite=2" style="border:0" alt="" /&gt;&lt;/p&gt;</noscript>
+<!-- End Piwik Tracking Code -->
+
+
+
+</div></body></html>

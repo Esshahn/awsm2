@@ -4,16 +4,16 @@ function credits_init()
   mycanvas160.clear();
   mycanvas.clear();
 
-  credits_gradient = new image("gfx/credits_gradient.gif");
-  credits_bubble1 = new image("gfx/credits_bubble1.gif");
-  credits_bubble2 = new image("gfx/credits_bubble2.gif");
-  credits_bubble3 = new image("gfx/credits_bubble3.gif");
-  credits_font = new image("gfx/font_zxspectrum_8x8.gif");
+  credits_gradient = new image(basepath + "gfx/credits_gradient.gif");
+  credits_bubble1 = new image(basepath + "gfx/credits_bubble1.gif");
+  credits_bubble2 = new image(basepath + "gfx/credits_bubble2.gif");
+  credits_bubble3 = new image(basepath + "gfx/credits_bubble3.gif");
+  credits_font = new image(basepath + "gfx/font_zxspectrum_8x8.gif");
   credits_font.initTile(8,8,32);
 
   credits_scroller_canvas = new canvas (320,200);
 
-  if (demoIsLive) playSong('sid/Arctic_Circles.sid',0);
+  if (demoIsLive) playSong(basepath + 'sid/Arctic_Circles.sid',0);
 
   sinusScrolltext =  "$              THE END";
 
@@ -30,7 +30,7 @@ function credits_init()
   sinusScrolltext += "$nothing less than legendary.";
 
   sinusScrolltext += "$$$This demo is intended as a";
-  sinusScrolltext += "$homage to those pieces of art.";
+  sinusScrolltext += "$hommage to those pieces of art.";
   sinusScrolltext += "$$$I tried to stay within the C64's";
   sinusScrolltext += "$limitations (colors, resolution)";
   sinusScrolltext += "$as close as possible.";
