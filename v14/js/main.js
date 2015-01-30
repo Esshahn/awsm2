@@ -37,6 +37,8 @@ function init(){
   // -----------------
 
   window.addEventListener("keydown", checkKeyPressed, false);
+  document.getElementById("toucharea").addEventListener('touchstart',   waitBeforeContinue , false)
+
 
   // -----------------
 
@@ -55,7 +57,7 @@ function init(){
     "AWSM IS BACK!", "WORLD GAMES/EPYX", "GIANA SISTERS +5",
     "TURRICAN +7", "*", "BUBBLE BOBBLE +","GRAND THEFT AUTO VI",
     "FULL OF SINUS","WINDOWS 3.11","MANIAC MANSION","PARALLAX+++",
-    "SKATEORDIE!","DEFENDER OF THE CROWN","MIKIE +3 /TRIAD",
+    "SKATEORDIE!","MIKIE +3 /TRIAD",
     "AMIGA EMULATOR","ATARI ST EMULATOR","M.U.L.E.","GHOSTS'N'GOBLINS -5");
   c64_game = c64_games[Math.floor(Math.random()*c64_games.length)];
 
@@ -95,7 +97,7 @@ function checkKeyPressed(e){
     // illusion of sitting in front of the 64 is easily destroyed.
     // the number in the if statement needs to be the last number of the switch case below
     // to actually stop at the last demo part
-    waitBeforeContinue();
+    if (playPart < 999) waitBeforeContinue();
   }
 
   if (keyCode == 70){
@@ -160,7 +162,6 @@ function render(){
     case 1:
             //clearScreen();
             callNextPart();
-
             break;
 
     case 2:
